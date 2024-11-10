@@ -13,10 +13,10 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   
     const imgRecipe = {
-      nigiri: "/assets/svg/Nigiri.svg",
-      uramaki: "/assets/svg/Uramaki.svg",
-      maki: "/assets/svg/Maki.svg",
-      temaki: "/assets/svg/Temaki.svg",
+      nigiri: "/assets/svg/nigiri.svg",
+      uramaki: "/assets/svg/uramaki.svg",
+      maki: "/assets/svg/maki.svg",
+      temaki: "/assets/svg/temaki.svg",
     };
   
     function fetchAndDisplayRecipe(url, imgPath) {
@@ -30,12 +30,12 @@ document.addEventListener("DOMContentLoaded", () => {
         .then((data) => {
           sushiRecipesContainer.innerText = data;
   
-          // Create and append the image to the picture container
+  
           const sushiImage = document.createElement("img");
           sushiImage.src = imgPath;
           sushiImage.alt = `Image of ${sushiType}`;
-          sushiImage.style.maxWidth = "100%"; // Adjust to fit the picture container
-          pictureContainer.innerHTML = ""; // Clear any previous content
+          sushiImage.style.maxWidth = "100%"; 
+          pictureContainer.innerHTML = ""; 
           pictureContainer.appendChild(sushiImage);
         })
         .catch((error) => {

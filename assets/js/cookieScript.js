@@ -5,7 +5,7 @@ bigCookie.addEventListener("click", () => {
   if (countClicks % 3 === 0 && countClicks <= 18) {
     bigCookie.style.backgroundImage = `url('assets/img/crackCookie${
       countClicks / 3
-    }.png')`;
+    }.webp')`;
   }
   if (countClicks === 19) {
     bigCookie.classList.add("glow");

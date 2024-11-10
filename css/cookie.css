@@ -31,7 +31,7 @@ body {
     display: block;
     width: 200px;
     height: 200px;
-    background-image: url("../assets/img/fortuneCookie.png");
+    background-image: url("../assets/img/fortuneCookie.webp");
     background-color: #af282f;
     background-size: contain;
     background-repeat: no-repeat;
@@ -85,7 +85,7 @@ body {
     z-index: 10000;
     content: "";
     display: block;
-    background-image: url("../assets/img/crackCookie6.png");
+    background-image: url("../assets/img/crackCookie6.webp");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

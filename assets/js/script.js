@@ -55,6 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
       slider1.classList.remove("light");
       switch1.classList.remove("light");
       document.getElementById("hero").classList.remove("light");
+      document.getElementById("welcome").classList.remove("light");
+      document.getElementById("history").classList.remove("light");
+      document.getElementById("typesSushi").classList.remove("light");
+      document.getElementById("gallery").classList.remove("light");
       document.querySelectorAll(".line").forEach((element) => {
         element.classList.remove("light");
       });
@@ -62,6 +66,10 @@ document.addEventListener("DOMContentLoaded", () => {
       slider1.classList.add("light");
       switch1.classList.add("light");
       document.getElementById("hero").classList.add("light");
+      document.getElementById("welcome").classList.add("light");
+      document.getElementById("history").classList.add("light");
+      document.getElementById("typesSushi").classList.add("light");
+      document.getElementById("gallery").classList.add("light");
       document.querySelectorAll(".line").forEach((element) => {
         element.classList.add("light");
       });

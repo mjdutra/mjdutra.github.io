@@ -243,6 +243,23 @@
     line-height: 1.5;
   }
 
+  #welcome.light {
+    background-color: #ffffff;
+  }
+  #welcome.light p {
+    color: #101920;
+  }
+  #welcome.light h1 {
+    color: #101920;
+  }
+  #welcome.light h1::before {
+    background-color: #ffffff;
+  }
+  #welcome.light h1::after {
+    background-color: #ffffff;
+  }
+
+
   #history {
     position: relative;
     display: flex;
@@ -285,6 +302,19 @@
     width: 100%;
     left: 0;
     top: 0;
+  }
+
+  #history.light {
+    background-color: #ffffff;
+  }
+  #history.light h1 {
+    color: #101920;
+  }
+  #history.light h1::before {
+    background-color: #ffffff;
+  }
+  #history.light h1::after {
+    background-color: #ffffff;
   }
 
   #typesSushi {
@@ -421,6 +451,25 @@
     transition-duration: 0.3s;
   }
 
+  #typesSushi.light {
+    background-color: #ffffff;
+  }
+  #typesSushi.light h1 {
+    color: #101920;
+  }
+  #typesSushi.light p {
+    color: #101920;
+  }
+  #typesSushi.light h1::before {
+    background-color: #ffffff;
+  }
+  #typesSushi.light h1::after {
+    background-color: #ffffff;
+  }
+  #typesSushi.light .plate {
+    color: #101920;
+  }
+
   @keyframes moveTrain {
     0% {
       transform: translateX(-300vw);
@@ -477,6 +526,19 @@
     width: 100%;
     left: 0;
     top: 0;
+  }
+
+  #gallery.light {
+    background-color: #ffffff;
+  }
+  #gallery.light h1 {
+    color: #101920;
+  }
+  #gallery.light h1::before {
+    background-color: #ffffff;
+  }
+  #gallery.light h1::after {
+    background-color: #ffffff;
   }
 
   @keyframes txt {

@@ -6,20 +6,37 @@
     <link rel="stylesheet" href="/css/infoSushi.css" />
     <link rel="stylesheet" href="/css/everywhere.css" />
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
-    <link rel="manifest" href="/assets/favicons/site.webmanifest">
-
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/assets/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/assets/favicons/site.webmanifest" />
 
     <title></title>
   </head>
   <body>
     <section id="information">
+      <div class="background">
+        <!-- <img src="/assets/svg/types-background.svg" alt="" /> -->
+      </div>
       <div class="container">
         <h1 id="sushiTitle"></h1>
         <button class="backButton" onclick="goBack()">Back</button>
         <a href="cookie.html" id="linkToCookie">
+          <span class="tooltip">Click me to know my recipe!</span>
           <button id="smallCookie"></button>
         </a>
         <img id="sushiImage" />

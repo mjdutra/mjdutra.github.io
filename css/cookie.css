@@ -1,0 +1,115 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Numans", sans-serif;
+}
+
+@media only screen and (min-width: 0px) {
+  #fortuneSection {
+    height: 100vh;
+    width: 100vw;
+    background-color: #af282f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cookieCrack {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 1;
+  }
+
+  #bigCookie {
+    display: block;
+    width: 200px;
+    height: 200px;
+    background-image: url("../assets/img/fortuneCookie.png");
+    background-color: #af282f;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+  }
+
+  #bigCookie:hover {
+    animation: shake 0.5s infinite;
+  }
+
+  @keyframes shake {
+    0% {
+      transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+      transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+      transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+      transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+      transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+      transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+      transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+      transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+      transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+      transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+      transform: translate(1px, -2px) rotate(-1deg);
+    }
+  }
+
+  .glow::before {
+    animation: glowExpand 2s forwards;
+    z-index: 10000;
+    content: "";
+    display: block;
+    background-image: url("../assets/img/crackCookie6.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+  }
+
+  @keyframes glowExpand {
+    0% {
+      background-color: rgba(255, 255, 255, 0.1);
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+      background-color: rgba(255, 255, 255, 1);
+      width: 100vw;
+      height: 100vh;
+      border-radius: 0;
+      transform: translate(-50%, -50%) scale(10);
+    }
+  }
+}

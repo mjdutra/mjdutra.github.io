@@ -1,0 +1,73 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Numans", sans-serif;
+}
+
+@media only screen and (min-width: 0px) {
+  #information {
+    position: relative;
+    background-color: #101920;
+    min-height: 100vh;
+    max-height: 100vh;
+  }
+  .container {
+    overflow: hidden;
+    position: relative;
+    width: 100vw; 
+    height: 100vh; 
+  }
+
+  #information h1 {
+    color: #ffffff;
+    font-weight: 600;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 15%;
+    font-size: 60px;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    letter-spacing: 0.5rem;
+  }
+  .backButton {
+    background-color: #101920;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 10px;
+    left: 10px;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid#ffffff;
+    cursor: pointer;
+  }
+
+  #smallCookie {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    right: 5%;
+    bottom: 0;
+    background-image: url("../assets/img/fortuneCookie.png");
+    background-color: #101920;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+  }
+
+  #sushiImage {
+    position: absolute;
+    max-width: 90%;
+    max-height: 90%;
+    top: 40%; 
+    left: 80%; 
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+  }
+}

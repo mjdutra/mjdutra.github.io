@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/everywhere.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <title>Sushi Guide</title>
+  </head>
+  <body>
+    <header id="navigation">
+      <div class="container">
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider"> </span>
+        </label>
+        <nav class="nav" role="navigation">
+          <button class="toggle" aria-label="mobile menu toggle">
+            <div class="box" aria-hidden="true">
+              <span class="line line1" aria-hidden="true"></span>
+              <span class="line line2" aria-hidden="true"></span>
+              <span class="line line3" aria-hidden="true"></span>
+            </div>
+          </button>
+
+          <div class="ul-wrapper">
+            <ul id="expanded" class="ul" aria-expanded="false">
+              <li class="li">
+                <a href="#home" class="li-link active"> Home </a>
+              </li>
+              <li class="li">
+                <a href="#welcome" class="li-link"> Welcome </a>
+              </li>
+              <li class="li">
+                <a href="#history" class="li-link"> History </a>
+              </li>
+              <li class="li">
+                <a href="#typesSushi" class="li-link"> Types of Sushi </a>
+              </li>
+              <li class="li">
+                <a href="#gallery" class="li-link"> Gallery </a>
+              </li>
+              <li class="li">
+                <a href="#recipes" class="li-link"> Recipes </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <a href="#contact" class="button-solid nav-button">Contact Us</a>
+      </div>
+    </header>
+
+    <main>
+      <section id="hero">
+        <div class="container">
+          <div class="titulo">
+            <h1>SUSHI</h1>
+            <h2>Guide</h2>
+          </div>
+          <div class="circles">
+            <span class="circulo"> </span>
+            <img
+              src="/assets/svg/Sushi1.svg"
+              id="cirle1"
+              alt="Sushi image"
+              class="overcircle"
+              style="display: none"
+            />
+            <img
+              src="/assets/svg/Sushi2.svg"
+              id="cirle2"
+              alt=""
+              class="overcircle"
+              style="display: none"
+            />
+            <img
+              src="/assets/svg/Sushi3.svg"
+              id="cirle3"
+              alt=""
+              class="overcircle"
+              style="display: none"
+            />
+          </div>
+        </div>
+        <h3 class="MJ">by Maria João Dutra Rosa</h3>
+        <div class="fishes">
+          <img
+            src="/assets/img/fish.png"
+            id="f1"
+            alt="Fish image 1"
+            class="fish"
+          />
+          <img
+            src="/assets/img/fish.png"
+            id="f2"
+            alt="Fish image 2"
+            class="fish"
+          />
+          <img
+            src="/assets/img/fish.png"
+            id="f3"
+            alt="Fish image 3"
+            class="fish"
+          />
+          <img
+            src="/assets/img/fish.png"
+            id="f4"
+            alt="Fish image 4"
+            class="fish"
+          />
+        </div>
+      </section>
+
+      <section id="welcome">
+        <div class="container">
+          <h1 data-text="WELCOME">WELCOME</h1>
+          <p>
+            Welcome to the Sushi Guide! Here you will find all the information
+            you need to know about sushi. From the history of sushi to the
+            different types of sushi, you will find everything you need to know
+            about this delicious Japanese dish.
+          </p>
+        </div>
+      </section>
+
+      <section id="history">
+        <div class="container">
+          <h1 data-text="HISTORY">HISTORY</h1>
+        </div>
+      </section>
+
+      <section id="typesSushi">
+        <div class="container">
+          <h1 data-text="Sushi Types">Sushi Types</h1>
+          <p>Click on the plates to see the different types of sushi</p>
+
+          <div class="container-train">
+            <div class="train left-to-right">
+              <button class="plate" data-type="TEMAKI">
+                <span class="tooltip">Temaki</span>
+                <img src="/assets/svg/temaki.svg" />
+              </button>
+              <button class="plate" data-type="NIGIRI">
+                <span class="tooltip">Nigiri</span>
+                <img src="/assets/svg/nigiri.svg" />
+              </button>
+              <button class="plate" data-type="MAKI">
+                <span class="tooltip">Maki</span>
+                <img src="/assets/svg/maki.svg" />
+              </button>
+              <button class="plate" data-type="URAMAKI">
+                <span class="tooltip">Uramaki</span>
+                <img src="/assets/svg/uramaki.svg" />
+              </button>
+              <button class="plate" data-type="TEMAKI">
+                <span class="tooltip">Temaki</span>
+                <img src="/assets/svg/temaki.svg" />
+              </button>
+              <button class="plate" data-type="NIGIRI">
+                <span class="tooltip">Nigiri</span>
+                <img src="/assets/svg/nigiri.svg" />
+              </button>
+              <button class="plate" data-type="MAKI">
+                <span class="tooltip">Maki</span>
+                <img src="/assets/svg/maki.svg" />
+              </button>
+              <button class="plate" data-type="URAMAKI">
+                <span class="tooltip">Uramaki</span>
+                <img src="/assets/svg/uramaki.svg" />
+              </button>
+            </div>
+
+            <div class="train right-to-left">
+              <button class="plate" data-type="TEMAKI">
+                <span class="tooltip">Temaki</span>
+                <img src="/assets/svg/temaki.svg" />
+              </button>
+              <button class="plate" data-type="NIGIRI">
+                <span class="tooltip">Nigiri</span>
+                <img src="/assets/svg/nigiri.svg" />
+              </button>
+              <button class="plate" data-type="MAKI">
+                <span class="tooltip">Maki</span>
+                <img src="/assets/svg/maki.svg" />
+              </button>
+              <button class="plate" data-type="URAMAKI">
+                <span class="tooltip">Uramaki</span>
+                <img src="/assets/svg/uramaki.svg" />
+              </button>
+              <button class="plate" data-type="TEMAKI">
+                <span class="tooltip">Temaki</span>
+                <img src="/assets/svg/temaki.svg" />
+              </button>
+              <button class="plate" data-type="NIGIRI">
+                <span class="tooltip">Nigiri</span>
+                <img src="/assets/svg/nigiri.svg" />
+              </button>
+              <button class="plate" data-type="MAKI">
+                <span class="tooltip">Maki</span>
+                <img src="/assets/svg/maki.svg" />
+              </button>
+              <button class="plate" data-type="URAMAKI">
+                <span class="tooltip">Uramaki</span>
+                <img src="/assets/svg/uramaki.svg" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery">
+        <div class="container">
+          <h1 data-text="GALLERY">GALLERY</h1>     
+          <div class="image-group">
+
+          <a class="item" href="">
+            <picture class="picture">
+              <img
+                loading="lazy"
+                decoding="async"
+                src="https://csimg.nyc3.digitaloceanspaces.com/Gallery/house1.jpg"
+                alt="fancy house"
+                width="346"
+                height="346"
+              />
+            </picture>
+
+            <div class="hover-box">
+              <picture class="icon">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="https://csimg.nyc3.digitaloceanspaces.com/Gallery/orange-arrow-right.svg"
+                  alt="fancy house"
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
+                />
+              </picture>
+              <h3 class="h3">Modern Architectual Design</h3>
+              <p class="hover-box-text">
+                Li Europan lingues es membres del sam familie. Lor separat
+                existentie es un myth.
+              </p>
+            </div>
+          </a>
+
+          <a class="item" href="">
+            <picture class="picture">
+            
+              <img
+                loading="lazy"
+                decoding="async"
+                src="https://csimg.nyc3.digitaloceanspaces.com/Gallery/house2.jpg"
+                alt="modern house"
+                width="346"
+                height="346"
+              />
+            </picture>
+
+            <div class="hover-box">
+              <picture class="icon">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="https://csimg.nyc3.digitaloceanspaces.com/Gallery/orange-arrow-right.svg"
+                  alt="fancy house"
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
+                />
+              </picture>
+              <h3 class="h3">Modern Architectual Design</h3>
+              <p class="hover-box-text">
+                Li Europan lingues es membres del sam familie. Lor separat
+                existentie es un myth.
+              </p>
+            </div>
+          </a>
+
+          <a class="item" href="">
+            <picture class="picture">
+           
+              <img
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                src="https://csimg.nyc3.digitaloceanspaces.com/Gallery/house1.jpg"
+                alt="modern home at night"
+                width="346"
+                height="346"
+              />
+            </picture>
+
+            <div class="hover-box">
+              <picture class="icon">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="https://csimg.nyc3.digitaloceanspaces.com/Gallery/orange-arrow-right.svg"
+                  alt="fancy house"
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
+                />
+              </picture>
+              <h3 class="h3">Modern Architectual Design</h3>
+              <p class="hover-box-text">
+                Li Europan lingues es membres del sam familie. Lor separat
+                existentie es un myth.
+              </p>
+            </div>
+          </a>
+
+          <a class="item" href="">
+            <picture class="picture">
+              <source
+                media="(max-width: 600px)"
+                srcset="
+                  https://csimg.nyc3.digitaloceanspaces.com/Gallery/house4-m.jpg
+                "
+              />
+              <source
+                media="(min-width: 601px)"
+                srcset="
+                  https://csimg.nyc3.digitaloceanspaces.com/Gallery/house4.jpg
+                "
+              />
+              <img
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                src="https://csimg.nyc3.digitaloceanspaces.com/Gallery/house4.jpg"
+                alt="modern home"
+                width="346"
+                height="346"
+              />
+            </picture>
+ 
+            <div class="hover-box">
+              <picture class="icon">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="https://csimg.nyc3.digitaloceanspaces.com/Gallery/orange-arrow-right.svg"
+                  alt="fancy house"
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
+                />
+              </picture>
+              <h3 class="h3">Modern Architectual Design</h3>
+              <p class="hover-box-text">
+                Li Europan lingues es membres del sam familie. Lor separat
+                existentie es un myth.
+              </p>
+            </div>
+          </a>
+
+          <a class="item" href="">
+            <picture class="picture">
+           
+              <img
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                src="https://csimg.nyc3.digitaloceanspaces.com/Gallery/house5.jpg"
+                alt="appliance"
+                width="346"
+                height="346"
+              />
+            </picture>
+
+            <div class="hover-box">
+              <picture class="icon">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="https://csimg.nyc3.digitaloceanspaces.com/Gallery/orange-arrow-right.svg"
+                  alt="fancy house"
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
+                />
+              </picture>
+              <h3 class="h3">Modern Architectual Design</h3>
+              <p class="hover-box-text">
+                Li Europan lingues es membres del sam familie. Lor separat
+                existentie es un myth.
+              </p>
+            </div>
+          </a>
+
+          <a class="item" href="">
+            <picture class="picture">
+              
+              <img
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
+                src="https://csimg.nyc3.digitaloceanspaces.com/Gallery/house6.jpg"
+                alt="modern home"
+                width="346"
+                height="346"
+              />
+            </picture>
+    
+            <div class="hover-box">
+              <picture class="icon">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="https://csimg.nyc3.digitaloceanspaces.com/Gallery/orange-arrow-right.svg"
+                  alt="fancy house"
+                  width="20"
+                  height="20"
+                  aria-hidden="true"
+                />
+              </picture>
+              <h3 class="h3">Modern Architectual Design</h3>
+              <p class="hover-box-text">
+                Li Europan lingues es membres del sam familie. Lor separat
+                existentie es un myth.
+              </p>
+            </div>
+          </a>
+        </div>
+        </div>
+   
+      </section>
+    </main>
+
+    <footer id="footer">
+      <div class="container">
+        <ul class="ul">
+          <li class="li">
+            <a href="#hero" class="link">Home</a>
+          </li>
+          <li class="li">
+            <a href="#welcome" class="link">Welcome</a>
+          </li>
+          <li class="li">
+            <a href="#history" class="link">History</a>
+          </li>
+          <li class="li">
+            <a href="#typesSushi" class="link">Types of Sushi</a>
+          </li>
+          <li class="li">
+            <a href="#gallery" class="link">Gallery</a>
+          </li>
+          <li class="li">
+            <a href="#recipes" class="link"> Recipes </a>
+          </li>
+        </ul>
+        <span class="li copyright">
+          © 2024 Copyright - Maria João Dutra Rosa
+        </span>
+      </div>
+    </footer>
+
+    <script defer src="/assets/js/script.js"></script>
+    <script defer src="/assets/js/navbar.js"></script>
+  </body>
+</html>

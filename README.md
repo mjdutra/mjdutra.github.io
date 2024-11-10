@@ -1,6 +1,6 @@
 # mjdutra.github.io
 
-# Sushi Guide
+# Sushi Guide 
 
 ## Purpose of the Sushi Guide
 

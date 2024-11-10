@@ -3,21 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/infoSushi.css" />
     <link rel="stylesheet" href="/css/everywhere.css" />
+    <link rel="stylesheet" href="/css/infoSushi.css" />
+    <link rel="stylesheet" href="/css/recipe.css" />
+
     <title></title>
   </head>
   <body>
-    <section id="information">
+
+
+    <section id="sbs">
+      <button class="backButton" onclick="goBack()">Back</button>
+
       <div class="container">
-        <h1 id="sushiTitle"></h1>
-        <button class="backButton" onclick="goBack()">Back</button>
-        <a href="cookie.html" id="linkToCookie">
-          <button id="smallCookie"></button>
-        </a>
-        <img id="sushiImage" />
+        <div class="image-group">
+          <picture class="picture">
+          </picture>
+        </div>
+        <div class="content">
+          <div class="flex">
+            <h1 id="sushiTitle" class="title"></h1>
+          </div>
+          <p class="sushiRecipes"></p>
+        </div>
       </div>
     </section>
+
     <script>
       function goBack() {
         window.location.href = "index.html?scrollTo=typesSushi";
@@ -35,11 +46,7 @@
         }
       }
       window.onload = scrollToSection;
-
-      const link = document.getElementById("linkToCookie");
-      const params = new URLSearchParams(window.location.search);
-      link.href = `cookie.html?${params.toString()}`;
     </script>
-    <script defer src="/assets/js/infoScript.js"></script>
+    <script defer src="/assets/js/recipe.js"></script>
   </body>
 </html>

@@ -1,21 +1,3 @@
-function goBack() {
-    window.location.href = "index.html?scrollTo=typesSushi";
-  }
-  
-  function scrollToSection() {
-    const params = new URLSearchParams(window.location.search);
-    const section = params.get("scrollTo");
-  
-    if (section === "typesSushi") {
-      const sushiSection = document.getElementById("typesSushi");
-      if (sushiSection) {
-        sushiSection.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-  }
-  window.onload = scrollToSection;
-
-
   document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
     const sushiType = params.get('sushiType');
@@ -53,3 +35,4 @@ function goBack() {
       }
     }
   });
+

@@ -1,0 +1,93 @@
+@media only screen and (min-width: 0rem) {
+  #sbs {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+    background-color: #101920;
+    color:#f4efe6;
+  }
+  #sbs .sushiRecipes {
+    text-align: justify;
+  }
+  #sbs .container {
+    height: 100%;
+    width: 100%;
+    max-width: 36.5rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(3rem, 6vw, 5rem);
+  }
+  #sbs .content {
+    text-align: left;
+    width: 100%;
+    max-width: 35.625rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    z-index: 3;
+  }
+  #sbs .image-group {
+    font-size: min(2.29vw, 0.9rem);
+    width: 39.375em;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: -1;
+  }
+  #sbs .picture {
+    width: 32.625em;
+    height: 32.5em;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    right: 0;
+    z-index: -1;
+
+    display: block;
+  }
+  #sbs .picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.7s;
+  }
+
+  #sbs .text {
+    margin-bottom: 0.75rem;
+  }
+  #sbs .text:last-of-type {
+    margin-bottom: 2rem;
+  }
+}
+@media only screen and (min-width: 64rem) {
+  #sbs .container {
+    max-width: 80rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+  #sbs .content {
+    padding: clamp(3rem, 5vw, 4rem) 40px;
+  }
+  #sbs .image-group {
+    font-size: min(1.27vw, 1rem);
+    min-height: 45.625em;
+    height: auto;
+    flex: none;
+    order: 2;
+  }
+  #sbs .picture {
+    position: absolute;
+    height: 93.150685%;
+  }
+}

@@ -30,21 +30,6 @@ body {
     text-orientation: upright;
     letter-spacing: 0.5rem;
   }
-  .backButton {
-    background-color: #101920;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 10px;
-    left: 10px;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid#f4efe6;
-    cursor: pointer;
-  }
 
   #smallCookie {
     position: absolute;

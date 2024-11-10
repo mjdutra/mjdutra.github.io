@@ -40,372 +40,528 @@
               <li class="li">
                 <a href="#gallery" class="li-link"> Gallery </a>
               </li>
-              <li class="li">
-                <a href="#recipes" class="li-link"> Recipes </a>
+
+              <li class="li dropdown" tabindex="0">
+                <span class="li-link">
+                  Recipes
+                  <img
+                    class="drop-icon"
+                    src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/Icons/chev-down.svg"
+                    alt="dropdown icon"
+                    width="15"
+                    height="15"
+                    decoding="async"
+                    aria-hidden="true"
+                  />
+                </span>
+                <ul class="drop-ul">
+                  <li class="drop-li">
+                    <a
+                      href="reacipe.html?sushiType=MAKI"
+                      class="li-link drop-link"
+                      >Maki</a
+                    >
+                  </li>
+                  <li class="drop-li">
+                    <a
+                      href="reacipe.html?sushiType=URAMAKI"
+                      class="li-link drop-link"
+                      >Uramaki</a
+                    >
+                  </li>
+                  <li class="drop-li">
+                    <a
+                      href="reacipe.html?sushiType=TEMAKI"
+                      class="li-link drop-link"
+                      >Temaki</a
+                    >
+                  </li>
+                  <li class="drop-li">
+                    <a
+                      href="reacipe.html?sushiType=NIGIRI"
+                      class="li-link drop-link"
+                      >Nigiri</a
+                    >
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>
         </nav>
-        <a href="#contact" class="button-solid nav-button">Contact Us</a>
       </div>
     </header>
 
     <main>
-        <section id="hero">
-          <div class="container">
-            <div class="titulo">
-              <h1>SUSHI</h1>
-              <h2>Guide</h2>
-            </div>
-            <div class="circles">
-              <span class="circulo"> </span>
-              <img
-                src="/assets/svg/Sushi1.svg"
-                id="cirle1"
-                alt="Sushi image"
-                class="overcircle"
-                style="display: none"
-              />
-              <img
-                src="/assets/svg/Sushi2.svg"
-                id="cirle2"
-                alt=""
-                class="overcircle"
-                style="display: none"
-              />
-              <img
-                src="/assets/svg/Sushi3.svg"
-                id="cirle3"
-                alt=""
-                class="overcircle"
-                style="display: none"
-              />
-            </div>
+      <section id="hero">
+        <div class="container">
+          <div class="titulo">
+            <h1>SUSHI</h1>
+            <h2>Guide</h2>
           </div>
-          <h3 class="MJ">by Maria João Dutra Rosa</h3>
-          <div class="fishes">
+          <div class="circles">
+            <span class="circulo"> </span>
             <img
-              src="/assets/img/fish.png"
-              id="f1"
-              alt="Fish image 1"
-              class="fish"
+              src="/assets/svg/Sushi1.svg"
+              id="cirle1"
+              alt="Sushi image"
+              class="overcircle"
+              style="display: none"
             />
             <img
-              src="/assets/img/fish.png"
-              id="f2"
-              alt="Fish image 2"
-              class="fish"
+              src="/assets/svg/Sushi2.svg"
+              id="cirle2"
+              alt=""
+              class="overcircle"
+              style="display: none"
             />
             <img
-              src="/assets/img/fish.png"
-              id="f3"
-              alt="Fish image 3"
-              class="fish"
-            />
-            <img
-              src="/assets/img/fish.png"
-              id="f4"
-              alt="Fish image 4"
-              class="fish"
+              src="/assets/svg/Sushi3.svg"
+              id="cirle3"
+              alt=""
+              class="overcircle"
+              style="display: none"
             />
           </div>
-        </section>
+        </div>
+        <h3 class="MJ">by Maria João Dutra Rosa</h3>
+        <div class="fishes">
+          <img
+            src="/assets/img/fish.png"
+            id="f1"
+            alt="Fish image 1"
+            class="fish"
+          />
+          <img
+            src="/assets/img/fish.png"
+            id="f2"
+            alt="Fish image 2"
+            class="fish"
+          />
+          <img
+            src="/assets/img/fish.png"
+            id="f3"
+            alt="Fish image 3"
+            class="fish"
+          />
+          <img
+            src="/assets/img/fish.png"
+            id="f4"
+            alt="Fish image 4"
+            class="fish"
+          />
+        </div>
+      </section>
 
-        <section id="welcome">
-          <div class="container">
-            <h1 data-text="WELCOME">WELCOME</h1>
-            <p>
-              Welcome to the Sushi Guide! Here you will find all the information
-              you need to know about sushi. From the history of sushi to the
-              different types of sushi, you will find everything you need to
-              know about this delicious Japanese dish.
-            </p>
-          </div>
-        </section>
+      <section id="welcome">
+        <h1 data-text="WELCOME">WELCOME</h1>
+        <div class="container">
+          <p>Welcome to the Sushi Guide!</p>
+          <p>
+            Here you will find all the information you need to know about sushi.
+          </p>
+          <p>
+            From the history of sushi to the different types of sushi, you will
+            find everything you need to know about this delicious Japanese dish.
+          </p>
+        </div>
+      </section>
 
-        <section id="history">
-          <div class="container">
+      <section id="history">
+        <div class="container">
+          <div class="content">
             <h1 data-text="HISTORY">HISTORY</h1>
           </div>
-        </section>
+          <ul class="card-group">
+            <li class="item">
+              <img
+                src="assets/svg/japan1.svg"
+                alt="icon"
+                class="icon"
+                aria-hidden="true"
+                decoding="async"
+                width="60"
+                height="60"
+              />
+              <h3 class="h3">Origins in Southeast Asia</h3>
+              <p class="item-text">
+                Sushi’s roots trace back to an ancient preservation method
+                called narezushi in Southeast Asia, where fish was salted and
+                fermented with rice to keep it fresh. This practice spread to
+                China and then to Japan around the 8th century.
+              </p>
+            </li>
+            <li class="item">
+              <img
+                src="assets/svg/japan2.svg"
+                alt="icon"
+                class="icon"
+                aria-hidden="true"
+                decoding="async"
+                width="60"
+                height="60"
+              />
+              <h3 class="h3">Early Japanese Sushi (Narezushi)</h3>
+              <p class="item-text">
+                In Japan, narezushi evolved as both a preservation method and a
+                food. The rice was initially discarded, and only the fermented
+                fish was consumed. Over time, the Japanese began to eat the rice
+                along with the fish.
+              </p>
+            </li>
+            <li class="item">
+              <img
+                src="assets/svg/japan3.svg"
+                alt="icon"
+                class="icon"
+                aria-hidden="true"
+                decoding="async"
+                width="60"
+                height="60"
+              />
+              <h3 class="h3">The Birth of Vinegared Rice (Mid-17th Century)</h3>
+              <p class="item-text">
+                By the Edo period (1603–1868), the process was refined further.
+                Instead of relying on fermentation, cooks used vinegar to flavor
+                the rice, which also acted as a preservative. This marked the
+                creation of oshizushi (pressed sushi) and other early forms.
+              </p>
+            </li>
+            <li class="item">
+              <img
+                src="assets/svg/japan4.svg"
+                alt="icon"
+                class="icon"
+                aria-hidden="true"
+                decoding="async"
+                width="60"
+                height="60"
+              />
+              <h3 class="h3">The Invention of Nigiri (Early 19th Century)</h3>
+              <p class="item-text">
+                In the early 19th century, Hanaya Yohei, a sushi chef in Edo
+                (modern-day Tokyo), revolutionized sushi by creating nigiri
+                sushi. This fast-food style combined a hand-pressed rice ball
+                with a fresh slice of fish, making sushi more convenient and
+                popular, especially in busy urban areas.
+              </p>
+            </li>
+            <li class="item">
+              <img
+                src="assets/svg/japan5.svg"
+                alt="icon"
+                class="icon"
+                aria-hidden="true"
+                decoding="async"
+                width="60"
+                height="60"
+              />
+              <h3 class="h3">Post-War Globalization</h3>
+              <p class="item-text">
+                After World War II, sushi began spreading globally, particularly
+                in the U.S. and Europe. The introduction of rolls like the
+                California Roll (featuring avocado and imitation crab) helped
+                make sushi more accessible to international audiences.
+              </p>
+            </li>
+            <li class="item">
+              <img
+                src="assets/svg/japan6.svg"
+                alt="icon"
+                class="icon"
+                aria-hidden="true"
+                decoding="async"
+                width="60"
+                height="60"
+              />
+              <h3 class="h3">Modern Sushi</h3>
+              <p class="item-text">
+                Today, sushi is a beloved culinary art form worldwide, with
+                countless variations, from traditional nigiri and maki to
+                innovative fusion rolls. Despite its evolution, sushi retains
+                its cultural significance and connection to Japan's culinary
+                heritage.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
 
-        <section id="typesSushi">
-          <div class="container">
-            <h1 data-text="Sushi Types">Sushi Types</h1>
-            <p>Click on the plates to see the different types of sushi</p>
+      <section id="typesSushi">
+        <div class="container">
+          <h1 data-text="Sushi Types">Sushi Types</h1>
+          <p>Click on the plates to see the different types of sushi</p>
 
-            <div class="container-train">
-              <div class="train left-to-right">
-                <button class="plate" data-type="TEMAKI">
-                  <span class="tooltip">Temaki</span>
-                  <img src="/assets/svg/temaki.svg" />
-                </button>
-                <button class="plate" data-type="NIGIRI">
-                  <span class="tooltip">Nigiri</span>
-                  <img src="/assets/svg/nigiri.svg" />
-                </button>
-                <button class="plate" data-type="MAKI">
-                  <span class="tooltip">Maki</span>
-                  <img src="/assets/svg/maki.svg" />
-                </button>
-                <button class="plate" data-type="URAMAKI">
-                  <span class="tooltip">Uramaki</span>
-                  <img src="/assets/svg/uramaki.svg" />
-                </button>
-                <button class="plate" data-type="TEMAKI">
-                  <span class="tooltip">Temaki</span>
-                  <img src="/assets/svg/temaki.svg" />
-                </button>
-                <button class="plate" data-type="NIGIRI">
-                  <span class="tooltip">Nigiri</span>
-                  <img src="/assets/svg/nigiri.svg" />
-                </button>
-                <button class="plate" data-type="MAKI">
-                  <span class="tooltip">Maki</span>
-                  <img src="/assets/svg/maki.svg" />
-                </button>
-                <button class="plate" data-type="URAMAKI">
-                  <span class="tooltip">Uramaki</span>
-                  <img src="/assets/svg/uramaki.svg" />
-                </button>
-              </div>
+          <div class="container-train">
+            <div class="train left-to-right">
+              <button class="plate" data-type="TEMAKI">
+                <span class="tooltip">Temaki</span>
+                <img src="/assets/svg/temaki.svg" />
+              </button>
+              <button class="plate" data-type="NIGIRI">
+                <span class="tooltip">Nigiri</span>
+                <img src="/assets/svg/nigiri.svg" />
+              </button>
+              <button class="plate" data-type="MAKI">
+                <span class="tooltip">Maki</span>
+                <img src="/assets/svg/maki.svg" />
+              </button>
+              <button class="plate" data-type="URAMAKI">
+                <span class="tooltip">Uramaki</span>
+                <img src="/assets/svg/uramaki.svg" />
+              </button>
+              <button class="plate" data-type="TEMAKI">
+                <span class="tooltip">Temaki</span>
+                <img src="/assets/svg/temaki.svg" />
+              </button>
+              <button class="plate" data-type="NIGIRI">
+                <span class="tooltip">Nigiri</span>
+                <img src="/assets/svg/nigiri.svg" />
+              </button>
+              <button class="plate" data-type="MAKI">
+                <span class="tooltip">Maki</span>
+                <img src="/assets/svg/maki.svg" />
+              </button>
+              <button class="plate" data-type="URAMAKI">
+                <span class="tooltip">Uramaki</span>
+                <img src="/assets/svg/uramaki.svg" />
+              </button>
+            </div>
 
-              <div class="train right-to-left">
-                <button class="plate" data-type="TEMAKI">
-                  <span class="tooltip">Temaki</span>
-                  <img src="/assets/svg/temaki.svg" />
-                </button>
-                <button class="plate" data-type="NIGIRI">
-                  <span class="tooltip">Nigiri</span>
-                  <img src="/assets/svg/nigiri.svg" />
-                </button>
-                <button class="plate" data-type="MAKI">
-                  <span class="tooltip">Maki</span>
-                  <img src="/assets/svg/maki.svg" />
-                </button>
-                <button class="plate" data-type="URAMAKI">
-                  <span class="tooltip">Uramaki</span>
-                  <img src="/assets/svg/uramaki.svg" />
-                </button>
-                <button class="plate" data-type="TEMAKI">
-                  <span class="tooltip">Temaki</span>
-                  <img src="/assets/svg/temaki.svg" />
-                </button>
-                <button class="plate" data-type="NIGIRI">
-                  <span class="tooltip">Nigiri</span>
-                  <img src="/assets/svg/nigiri.svg" />
-                </button>
-                <button class="plate" data-type="MAKI">
-                  <span class="tooltip">Maki</span>
-                  <img src="/assets/svg/maki.svg" />
-                </button>
-                <button class="plate" data-type="URAMAKI">
-                  <span class="tooltip">Uramaki</span>
-                  <img src="/assets/svg/uramaki.svg" />
-                </button>
-              </div>
+            <div class="train right-to-left">
+              <button class="plate" data-type="TEMAKI">
+                <span class="tooltip">Temaki</span>
+                <img src="/assets/svg/temaki.svg" />
+              </button>
+              <button class="plate" data-type="NIGIRI">
+                <span class="tooltip">Nigiri</span>
+                <img src="/assets/svg/nigiri.svg" />
+              </button>
+              <button class="plate" data-type="MAKI">
+                <span class="tooltip">Maki</span>
+                <img src="/assets/svg/maki.svg" />
+              </button>
+              <button class="plate" data-type="URAMAKI">
+                <span class="tooltip">Uramaki</span>
+                <img src="/assets/svg/uramaki.svg" />
+              </button>
+              <button class="plate" data-type="TEMAKI">
+                <span class="tooltip">Temaki</span>
+                <img src="/assets/svg/temaki.svg" />
+              </button>
+              <button class="plate" data-type="NIGIRI">
+                <span class="tooltip">Nigiri</span>
+                <img src="/assets/svg/nigiri.svg" />
+              </button>
+              <button class="plate" data-type="MAKI">
+                <span class="tooltip">Maki</span>
+                <img src="/assets/svg/maki.svg" />
+              </button>
+              <button class="plate" data-type="URAMAKI">
+                <span class="tooltip">Uramaki</span>
+                <img src="/assets/svg/uramaki.svg" />
+              </button>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section id="gallery">
-          <div class="container">
-            <h1 data-text="GALLERY">GALLERY</h1>
-            <div class="image-group">
-              <a class="item" href="reacipe.html?sushiType=URAMAKI">
-                <picture class="picture">
+      <section id="gallery">
+        <div class="container">
+          <h1 data-text="GALLERY">GALLERY</h1>
+          <div class="image-group">
+            <a class="item" href="reacipe.html?sushiType=URAMAKI">
+              <picture class="picture">
+                <img
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/img/uramakiRolls.jpg"
+                  alt="Uramaki sushi"
+                  width="346"
+                  height="346"
+                />
+              </picture>
+
+              <div class="hover-box">
+                <picture class="icon">
                   <img
+                    loading="lazy"
+                    decoding="async"
+                    src="/assets/svg/arrow-right.svg"
+                    alt="->"
+                    width="20"
+                    height="20"
                     aria-hidden="true"
-                    loading="lazy"
-                    decoding="async"
-                    src="assets/img/uramakiRolls.jpg"
-                    alt="Uramaki sushi"
-                    width="346"
-                    height="346"
                   />
                 </picture>
+                <h3 class="h3">Uramaki California Rolls</h3>
+                <p class="hover-box-text">
+                  An "inside-out" roll with rice on the outside, often coated
+                  with sesame seeds or roe, and seaweed on the inside.
+                </p>
+              </div>
+            </a>
+            <a class="item" href="reacipe.html?sushiType=NIGIRI">
+              <picture class="picture">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/img/nigiri.jpg"
+                  alt="Nigiri sushi"
+                  width="346"
+                  height="346"
+                />
+              </picture>
 
-                <div class="hover-box">
-                  <picture class="icon">
-                    <img
-                      loading="lazy"
-                      decoding="async"
-                      src="/assets/svg/arrow-right.svg"
-                      alt="->"
-                      width="20"
-                      height="20"
-                      aria-hidden="true"
-                    />
-                  </picture>
-                  <h3 class="h3">Uramaki California Rolls</h3>
-                  <p class="hover-box-text">
-                    An "inside-out" roll with rice on the outside, often coated
-                    with sesame seeds or roe, and seaweed on the inside.
-                  </p>
-                </div>
-              </a>
-              <a class="item" href="reacipe.html?sushiType=NIGIRI">
-                <picture class="picture">
+              <div class="hover-box">
+                <picture class="icon">
                   <img
                     loading="lazy"
                     decoding="async"
-                    src="assets/img/nigiri.jpg"
-                    alt="Nigiri sushi"
-                    width="346"
-                    height="346"
-                  />
-                </picture>
-
-                <div class="hover-box">
-                  <picture class="icon">
-                    <img
-                      loading="lazy"
-                      decoding="async"
-                      src="/assets/svg/arrow-right.svg"
-                      alt="->"
-                      width="20"
-                      height="20"
-                      aria-hidden="true"
-                    />
-                  </picture>
-                  <h3 class="h3">Nigiri</h3>
-                  <p class="hover-box-text">
-                    Hand-formed sushi with a small ball of rice topped with a
-                    slice of fish or seafood, sometimes garnished with wasabi or
-                    a dab of sauce.
-                  </p>
-                </div>
-              </a>
-              <a class="item" href="reacipe.html?sushiType=MAKI">
-                <picture class="picture">
-                  <img
-                    loading="lazy"
-                    decoding="async"
-                    src="assets/img/makiRolls.jpg"
-                    alt="Spicy Tuna Maki Rolls"
-                    width="346"
-                    height="346"
-                  />
-                </picture>
-
-                <div class="hover-box">
-                  <picture class="icon">
-                    <img
-                      loading="lazy"
-                      decoding="async"
-                      src="/assets/svg/arrow-right.svg"
-                      alt="->"
-                      width="20"
-                      height="20"
-                      aria-hidden="true"
-                    />
-                  </picture>
-                  <h3 class="h3">Spicy Tuna Maki Rolls</h3>
-                  <p class="hover-box-text">
-                    Traditional sushi rolls made by wrapping fish, vegetables,
-                    and rice in seaweed, then sliced into bite-sized pieces.
-                  </p>
-                </div>
-              </a>
-              <a class="item" href="reacipe.html?sushiType=NIGIRI">
-                <picture class="picture">
-                  <img
-                    loading="lazy"
-                    decoding="async"
-                    src="assets/img/nigiri2.jpg"
-                    alt="Nigiri sushi"
-                    width="346"
-                    height="346"
-                  />
-                </picture>
-
-                <div class="hover-box">
-                  <picture class="icon">
-                    <img
-                      loading="lazy"
-                      decoding="async"
-                      src="/assets/svg/arrow-right.svg"
-                      alt="->"
-                      width="20"
-                      height="20"
-                      aria-hidden="true"
-                    />
-                  </picture>
-                  <h3 class="h3">Nigiri</h3>
-                  <p class="hover-box-text">
-                    Hand-formed sushi with a small ball of rice topped with a
-                    slice of fish or seafood, sometimes garnished with wasabi or
-                    a dab of sauce.
-                  </p>
-                </div>
-              </a>
-              <a class="item" href="reacipe.html?sushiType=TEMAKI">
-                <picture class="picture">
-                  <img
+                    src="/assets/svg/arrow-right.svg"
+                    alt="->"
+                    width="20"
+                    height="20"
                     aria-hidden="true"
-                    loading="lazy"
-                    decoding="async"
-                    src="assets/img/temaki.jpg"
-                    alt="Temaki sushi"
-                    width="346"
-                    height="346"
                   />
                 </picture>
+                <h3 class="h3">Nigiri</h3>
+                <p class="hover-box-text">
+                  Hand-formed sushi with a small ball of rice topped with a
+                  slice of fish or seafood, sometimes garnished with wasabi or a
+                  dab of sauce.
+                </p>
+              </div>
+            </a>
+            <a class="item" href="reacipe.html?sushiType=MAKI">
+              <picture class="picture">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/img/makiRolls.jpg"
+                  alt="Spicy Tuna Maki Rolls"
+                  width="346"
+                  height="346"
+                />
+              </picture>
 
-                <div class="hover-box">
-                  <picture class="icon">
-                    <img
-                      loading="lazy"
-                      decoding="async"
-                      src="/assets/svg/arrow-right.svg"
-                      alt="->"
-                      width="20"
-                      height="20"
-                      aria-hidden="true"
-                    />
-                  </picture>
-                  <h3 class="h3">Temaki</h3>
-                  <p class="hover-box-text">
-                    Cone-shaped sushi roll filled with rice, fish, and
-                    vegetables, wrapped in seaweed. It's designed to be eaten by
-                    hand.
-                  </p>
-                </div>
-              </a>
-              <a class="item" href="reacipe.html?sushiType=MAKI">
-                <picture class="picture">
+              <div class="hover-box">
+                <picture class="icon">
                   <img
                     loading="lazy"
                     decoding="async"
-                    src="assets/img/maki2.jpg"
-                    alt="Spicy Tuna Maki Rolls"
-                    width="346"
-                    height="346"
+                    src="/assets/svg/arrow-right.svg"
+                    alt="->"
+                    width="20"
+                    height="20"
+                    aria-hidden="true"
                   />
                 </picture>
+                <h3 class="h3">Spicy Tuna Maki Rolls</h3>
+                <p class="hover-box-text">
+                  Traditional sushi rolls made by wrapping fish, vegetables, and
+                  rice in seaweed, then sliced into bite-sized pieces.
+                </p>
+              </div>
+            </a>
+            <a class="item" href="reacipe.html?sushiType=NIGIRI">
+              <picture class="picture">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/img/nigiri2.jpg"
+                  alt="Nigiri sushi"
+                  width="346"
+                  height="346"
+                />
+              </picture>
 
-                <div class="hover-box">
-                  <picture class="icon">
-                    <img
-                      loading="lazy"
-                      decoding="async"
-                      src="/assets/svg/arrow-right.svg"
-                      alt="->"
-                      width="20"
-                      height="20"
-                      aria-hidden="true"
-                    />
-                  </picture>
-                  <h3 class="h3">Spicy Tuna Maki Rolls</h3>
-                  <p class="hover-box-text">
-                    Traditional sushi rolls made by wrapping fish, vegetables,
-                    and rice in seaweed, then sliced into bite-sized pieces.
-                  </p>
-                </div>
-              </a>
-            </div>
+              <div class="hover-box">
+                <picture class="icon">
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    src="/assets/svg/arrow-right.svg"
+                    alt="->"
+                    width="20"
+                    height="20"
+                    aria-hidden="true"
+                  />
+                </picture>
+                <h3 class="h3">Nigiri</h3>
+                <p class="hover-box-text">
+                  Hand-formed sushi with a small ball of rice topped with a
+                  slice of fish or seafood, sometimes garnished with wasabi or a
+                  dab of sauce.
+                </p>
+              </div>
+            </a>
+            <a class="item" href="reacipe.html?sushiType=TEMAKI">
+              <picture class="picture">
+                <img
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/img/temaki.jpg"
+                  alt="Temaki sushi"
+                  width="346"
+                  height="346"
+                />
+              </picture>
+
+              <div class="hover-box">
+                <picture class="icon">
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    src="/assets/svg/arrow-right.svg"
+                    alt="->"
+                    width="20"
+                    height="20"
+                    aria-hidden="true"
+                  />
+                </picture>
+                <h3 class="h3">Temaki</h3>
+                <p class="hover-box-text">
+                  Cone-shaped sushi roll filled with rice, fish, and vegetables,
+                  wrapped in seaweed. It's designed to be eaten by hand.
+                </p>
+              </div>
+            </a>
+            <a class="item" href="reacipe.html?sushiType=MAKI">
+              <picture class="picture">
+                <img
+                  loading="lazy"
+                  decoding="async"
+                  src="assets/img/maki2.jpg"
+                  alt="Spicy Tuna Maki Rolls"
+                  width="346"
+                  height="346"
+                />
+              </picture>
+
+              <div class="hover-box">
+                <picture class="icon">
+                  <img
+                    loading="lazy"
+                    decoding="async"
+                    src="/assets/svg/arrow-right.svg"
+                    alt="->"
+                    width="20"
+                    height="20"
+                    aria-hidden="true"
+                  />
+                </picture>
+                <h3 class="h3">Spicy Tuna Maki Rolls</h3>
+                <p class="hover-box-text">
+                  Traditional sushi rolls made by wrapping fish, vegetables, and
+                  rice in seaweed, then sliced into bite-sized pieces.
+                </p>
+              </div>
+            </a>
           </div>
-        </section>
+        </div>
+      </section>
     </main>
 
     <footer id="footer">
@@ -425,9 +581,6 @@
           </li>
           <li class="li">
             <a href="#gallery" class="link">Gallery</a>
-          </li>
-          <li class="li">
-            <a href="#recipes" class="link"> Recipes </a>
           </li>
         </ul>
         <span class="li copyright">

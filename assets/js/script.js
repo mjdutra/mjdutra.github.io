@@ -3,7 +3,9 @@ function changeImage() {
 
   let welcomeSection = document.getElementById("welcome");
   let welcomeEnd = welcomeSection.offsetTop + welcomeSection.offsetHeight - 320;
-
+  if (window.innerWidth > 768) {
+    welcomeEnd = welcomeSection.offsetTop + welcomeSection.offsetHeight - 420;
+  }
   window.addEventListener("scroll", () => {
     currentScroll = window.scrollY;
     let pageHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -29,7 +31,9 @@ function changeImage() {
       document.getElementById("cirle1").style.display = "none";
       document.getElementById("cirle2").style.display = "none";
       document.getElementById("cirle3").style.display = "block";
-      document.getElementById("cirle3").style.transform = `scale(0.8) translate(-62%,-62%)`;
+      document.getElementById(
+        "cirle3"
+      ).style.transform = `scale(0.8) translate(-62%,-62%)`;
       document.querySelector(".circulo").style.display = "none";
     } else {
       document.getElementById("cirle1").style.display = "none";
@@ -38,6 +42,12 @@ function changeImage() {
       document.querySelector(".circulo").style.display = "none";
     }
   });
+  if (window.scrollY > welcomeEnd) {
+    document.getElementById("cirle1").style.display = "none";
+    document.getElementById("cirle2").style.display = "none";
+    document.getElementById("cirle3").style.display = "none";
+    document.querySelector(".circulo").style.display = "none";
+  }
 }
 changeImage();
 

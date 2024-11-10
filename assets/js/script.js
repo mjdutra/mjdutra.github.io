@@ -15,12 +15,12 @@ function changeImage() {
       document.getElementById("cirle2").style.display = "none";
       document.getElementById("cirle3").style.display = "none";
       document.querySelector(".circulo").style.display = "block";
-    } else if (currentScroll < pageHeight * 0.22) {
+    } else if (currentScroll < pageHeight * 0.15) {
       document.getElementById("cirle1").style.display = "block";
       document.getElementById("cirle2").style.display = "none";
       document.getElementById("cirle3").style.display = "none";
       document.querySelector(".circulo").style.display = "none";
-    } else if (currentScroll < pageHeight * 0.33) {
+    } else if (currentScroll < pageHeight * 0.2) {
       document.getElementById("cirle1").style.display = "none";
       document.getElementById("cirle2").style.display = "block";
       document.getElementById("cirle3").style.display = "none";

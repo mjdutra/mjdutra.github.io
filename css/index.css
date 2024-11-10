@@ -3,7 +3,7 @@
   z-index: 1;
   width: 50px;
   height: 25px;
-  background-color: #fff;
+  background-color: #f4efe6;
   border: 2px solid #101920;
   border-radius: 30px;
   cursor: pointer;
@@ -12,7 +12,7 @@
 
 .switch.light {
   background-color: #101920;
-  border: 2px solid #fff;
+  border: 2px solid #f4efe6;
 }
 
 .switch input {
@@ -75,9 +75,9 @@
   }
 
   #hero .titulo h1 {
-    color: #ffffff;
+    color: #f4efe6;
     font-weight: 300;
-    border: 1px solid #ffffff;
+    border: 1px solid #f4efe6;
     position: relative;
     font-size: 30px;
     writing-mode: vertical-rl;
@@ -87,7 +87,7 @@
   }
 
   #hero .titulo h2 {
-    color: #ffffff;
+    color: #f4efe6;
     font-weight: 200;
     position: relative;
     font-size: 15px;
@@ -125,7 +125,7 @@
     left: 25%;
     font-size: 10px;
     font-weight: 100;
-    color: #ffffff;
+    color: #f4efe6;
     margin: 0;
     letter-spacing: 0.1rem;
     z-index: 1;
@@ -179,7 +179,7 @@
   }
 
   #hero.light {
-    background-color: #ffffff;
+    background-color: #f4efe6;
   }
   #hero.light .MJ {
     color: #101920;
@@ -200,7 +200,7 @@
     font-size: 40px;
     font-weight: 700;
     top: 20px;
-    color: #ffffff;
+    color: #f4efe6;
     text-align: center;
     letter-spacing: 0.2rem;
     z-index: 0;
@@ -233,7 +233,7 @@
   #welcome p {
     position: relative;
     font-size: 10px;
-    color: #ffffff;
+    color: #f4efe6;
     font-weight: 100;
     top: 30%;
     letter-spacing: 0.2rem;
@@ -244,7 +244,7 @@
   }
 
   #welcome.light {
-    background-color: #ffffff;
+    background-color: #f4efe6;
   }
   #welcome.light p {
     color: #101920;
@@ -253,12 +253,11 @@
     color: #101920;
   }
   #welcome.light h1::before {
-    background-color: #ffffff;
+    background-color: #f4efe6;
   }
   #welcome.light h1::after {
-    background-color: #ffffff;
+    background-color: #f4efe6;
   }
-
 
   #history {
     position: relative;
@@ -274,7 +273,7 @@
     font-size: 40px;
     font-weight: 700;
     top: 20px;
-    color: #ffffff;
+    color: #f4efe6;
     text-align: center;
     letter-spacing: 0.2rem;
     z-index: 0;
@@ -305,16 +304,16 @@
   }
 
   #history.light {
-    background-color: #ffffff;
+    background-color: #f4efe6;
   }
   #history.light h1 {
     color: #101920;
   }
   #history.light h1::before {
-    background-color: #ffffff;
+    background-color: #f4efe6;
   }
   #history.light h1::after {
-    background-color: #ffffff;
+    background-color: #f4efe6;
   }
 
   #typesSushi {
@@ -338,7 +337,7 @@
     font-size: 35px;
     font-weight: 700;
     top: 0px;
-    color: #ffffff;
+    color: #f4efe6;
     text-align: center;
     letter-spacing: 0.2rem;
     z-index: 0;
@@ -374,7 +373,7 @@
     font-size: 15px;
     font-weight: 100;
     top: 0px;
-    color: #ffffff;
+    color: #f4efe6;
     text-align: center;
     letter-spacing: 0.2rem;
     z-index: 0;
@@ -403,7 +402,7 @@
 
   .plate {
     font-size: 3rem;
-    background-color: #fff;
+    background-color: #f4efe6;
     padding: 1rem;
     border-radius: 50%;
   }
@@ -438,7 +437,7 @@
     content: "";
     width: 10px;
     height: 10px;
-    background-color: #fff;
+    background-color: #f4efe6;
     background-position: center;
     transform: rotate(45deg);
     bottom: -15%;
@@ -452,7 +451,7 @@
   }
 
   #typesSushi.light {
-    background-color: #ffffff;
+    background-color: #f4efe6;
   }
   #typesSushi.light h1 {
     color: #101920;
@@ -461,10 +460,10 @@
     color: #101920;
   }
   #typesSushi.light h1::before {
-    background-color: #ffffff;
+    background-color: #f4efe6;
   }
   #typesSushi.light h1::after {
-    background-color: #ffffff;
+    background-color: #f4efe6;
   }
   #typesSushi.light .plate {
     color: #101920;
@@ -498,7 +497,7 @@
     font-size: 35px;
     font-weight: 700;
     top: 0px;
-    color: #ffffff;
+    color: #f4efe6;
     text-align: center;
     letter-spacing: 0.2rem;
     z-index: 0;
@@ -529,16 +528,16 @@
   }
 
   #gallery.light {
-    background-color: #ffffff;
+    background-color: #f4efe6;
   }
   #gallery.light h1 {
     color: #101920;
   }
   #gallery.light h1::before {
-    background-color: #ffffff;
+    background-color: #f4efe6;
   }
   #gallery.light h1::after {
-    background-color: #ffffff;
+    background-color: #f4efe6;
   }
 
   @keyframes txt {
@@ -626,7 +625,7 @@
   height: clamp(3.125rem, 5vw, 3.75rem);
   margin-bottom: clamp(1rem, 5vw, 2rem);
   border-radius: 50%;
-  background-color: #fff;
+  background-color: #f4efe6;
   outline: 0.5rem solid rgba(255, 255, 255, 0.7);
   transform: rotateY(90deg);
   position: relative;
@@ -646,7 +645,7 @@
   font-weight: 700;
   margin: 0 auto;
   max-width: 16.875rem;
-  color: #fff;
+  color: #f4efe6;
   opacity: 0;
   transform: translateY(0.625rem);
   margin-bottom: 0.5rem;
@@ -658,13 +657,12 @@
   line-height: 1.5em;
   margin: 0 auto;
   max-width: 16.875rem;
-  color: #fff;
+  color: #f4efe6;
   opacity: 0;
   transform: translateY(0.625rem);
   transition: opacity 0.3s, transform 0.3s ease-out;
   transition-delay: 0.2s;
 }
-
 
 @media only screen and (min-width: 37.5rem) {
   #gallery .image-group {

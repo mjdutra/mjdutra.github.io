@@ -19,7 +19,7 @@ body {
   }
 
   #information h1 {
-    color: #ffffff;
+    color: #f4efe6;
     font-weight: 600;
     position: absolute;
     left: 0;
@@ -42,7 +42,7 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 2px solid#ffffff;
+    border: 2px solid#f4efe6;
     cursor: pointer;
   }
 

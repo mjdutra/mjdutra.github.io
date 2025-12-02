@@ -8,7 +8,7 @@
         <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
     </head>
     <body>
-        <a-scene renderer="antialias: true"> 
+        <a-scene renderer="antialias: true" game-manager> 
             <a-assets>
                 
                 <!-- Céu -->
@@ -22,8 +22,12 @@
                 <audio id="forest" src="assets/audio/forest.mp3"></audio>
                 <audio id="footstep" src="assets/audio/footstep.mp3"></audio>
 
-                <audio id="audioVolva1" src="assets/audio/audioVolva1.mp3" preload="auto"></a-sound>
-                <audio id="audioVolva2" src="assets/audio/audioVolva2.mp3" preload="auto"></a-sound>
+                <audio id="audioVolva1" src="assets/audio/audioVolva1.mp3" preload="auto"></a-audio>
+                <audio id="audioVolva2" src="assets/audio/audioVolva2.mp3" preload="auto"></audio>
+                
+                <!-- <audio id="audioVolva3" src="assets/audio/audioVolva3.mp3" preload="auto"></a-audio>
+                <audio id="audioVolva4" src="assets/audio/audioVolva4.mp3" preload="auto"></a-audio>
+                <audio id="audioVolva5" src="assets/audio/audioVolva5.mp3" preload="auto"></a-audio> -->
 
 
 
@@ -33,17 +37,17 @@
                 <a-asset-item id="casa3" src="assets/models/casa3.glb"></a-asset-item>
                 <a-asset-item id="arvore" src="assets/models/tree.glb"></a-asset-item>
                 <a-asset-item id="fogueira" src="assets/models/torch.glb"></a-asset-item>
-                <a-asset-item id="volva" src="assets/models/volva.glb">
-                <!-- <a-asset-item id="cabana" src="assets/models/volva.glb">
-                <a-asset-item id="espada" src="assets/models/espada.glb">
-                <a-asset-item id="amuleto" src="assets/models/amuleto.glb">
-                <a-asset-item id="carroça" src="assets/models/carroça.glb">
-                <a-asset-item id="cavalo" src="assets/models/cavalo.glb">
-                <a-asset-item id="npc1" src="assets/models/npc1.glb"> -->
-                <a-asset-item id="boat" src="assets/models/boat.glb">
-                <!-- <a-asset-item id="escudo" src="assets/models/escudo.glb">
-                <a-asset-item id="coins" src="assets/models/coins.glb">
-                <a-asset-item id="machado" src="assets/models/machado.glb">-->
+                <a-asset-item id="volva" src="assets/models/volva.glb"></a-asset-item>
+                <a-asset-item id="cabana" src="assets/models/cabana.glb"></a-asset-item>
+                <a-asset-item id="espada" src="assets/models/espada.glb"></a-asset-item>
+                <a-asset-item id="amuleto" src="assets/models/amuleto.glb"></a-asset-item>
+                <!-- <a-asset-item id="carroça" src="assets/models/carroça.glb"></a-asset-item>
+                <a-asset-item id="cavalo" src="assets/models/cavalo.glb"></a-asset-item>
+                <a-asset-item id="npc1" src="assets/models/npc1.glb"></a-asset-item> -->
+                <a-asset-item id="boat" src="assets/models/boat.glb"></a-asset-item>
+                <!-- <a-asset-item id="escudo" src="assets/models/escudo.glb"></a-asset-item>
+                <a-asset-item id="coins" src="assets/models/coins.glb"></a-asset-item>
+                <a-asset-item id="machado" src="assets/models/machado.glb"></a-asset-item> -->
 
 
             </a-assets>
@@ -53,7 +57,9 @@
             <a-entity sound="src: #forest; autoplay: true; loop: true; volume: 0.04"></a-entity>
             <a-entity sound="src: #footstep; autoplay: false; poolSize: 5; volume: 2"></a-entity>
 
-            <!-- PLAYER-->
+
+
+            <!------------------------- PLAYER ------------------------->
             <a-entity 
                 id="player"
                 camera
@@ -80,7 +86,7 @@
                         <!-- Texto -->
                         <a-entity 
                             id="subtitleText"
-                            text="value: ; color: #fff; align: center; wrapCount: 55"
+                            text="value: ; color: #fff; wrapCount: 55"
                             position="0 0 0"
                             scale="2 2 2">
                         </a-entity>
@@ -89,9 +95,9 @@
                     <!-- Botões -->
                     <a-entity id="btnNext"
                         visible="false"
-                        geometry="primitive: plane; width: 0.45; height: 0.25"
+                        geometry="primitive: plane; width: 0.3; height: 0.2"
                         material="color: #222; opacity: 0.85"
-                        position="0.55 -0.25 0"
+                        position="1.09 -0.85 0"
                         class="clickable"
                         scale="1.05 1.05 1.05">
                         <a-entity
@@ -102,9 +108,9 @@
 
                     <a-entity id="btnRepeat"
                         visible="false"
-                        geometry="primitive: plane; width: 0.45; height: 0.25"
+                        geometry="primitive: plane; width: 0.3; height: 0.2"
                         material="color: #222; opacity: 0.85"
-                        position="-0.55 -0.25 0"
+                        position="-1.09 -0.85 0"
                         class="clickable"
                         scale="1.05 1.05 1.05">
                             <a-entity
@@ -115,6 +121,8 @@
 
                 </a-entity>
             </a-entity>
+
+
 
             <!-- ILUMINAÇÃO E CÉU -->
             <a-entity light="type: ambient; color: #ccc"></a-entity>
@@ -206,27 +214,90 @@
 
         <!-- LEGENDAS -->
         <script id="subtitle1" type="text/plain">
-        Greetings, traveller. I am the volva, the seeress of this village. Today we witness the passage of a respected member to the world beyond. In Norse belief, death is not an end but a transition to another realm.
+        Greetings, traveller. I am the volva, the seeress of this village. 
+        Today we witness the passage of a respected member to the world beyond. 
+        In Norse belief, death is not an end but a transition to another realm.
         </script>
-
         <script id="subtitle2" type="text/plain">
-        Funerals among our people are as much for the living as for the dead. They remind us of our ancestors, our kinship, and the values we uphold. The rites strengthen bonds and ensure the spirits do not linger among us.
+        Funerals among our people are as much for the living as for the dead. 
+        They remind us of our ancestors, our kinship, and the values we uphold. 
+        The rites strengthen bonds and ensure the spirits do not linger among us.
         </script>
         
 
         <!-- ========== PART 2: OFERENDAS ========== -->
+        <a-entity id="cabanaEntity"
+            gltf-model="#cabana"
+            position="17 0 -32"
+            rotation="0 -20 0"
+            scale="4 4 4"
+            visible="false"
+            cabana-trigger>
+        </a-entity>
+
+        <!-- LEGENDAS -->
+        <script id="subtitle3" type="text/plain">
+        Here lies the one who has departed. 
+        The body is washed and dressed in linen.
+        Objects placed with the body speak of their life.  
+        </script>
+        <script id="subtitle4" type="text/plain">
+        A sword for protection and an amulet for luck.
+        They remind the gods of the person’s skills, status, and the tasks they carried out in life.
+        A gift for the road, as our ancestors believed.
+        </script>
 
 
         <!-- ========== PART 3: PROCISSÃO ========== -->
 
+
+
+        <!-- LEGENDAS -->
+        <script id="subtitle5" type="text/plain">
+        The procession marks the final journey through the world of the living.
+        In many Norse funerals the body was carried on a wagon or sled, drawn by horses or borne by kinsmen.
+        </script>
+        <script id="subtitle6" type="text/plain">
+        Torches guide us, symbolising the light carried into the other world. 
+        Fire is a bridge between realms.
+        </script>
+        <script id="subtitle7" type="text/plain">
+        Listen to the chanting. 
+        These tones steady the hearts of the mourners and call upon the ancestors to witness the passing.
+        It is said that the louder the chants, the less likely the spirit is to linger behind.
+        </script>
+
         <!-- ========== PART 4: BARCO ========== -->
+        <a-entity gltf-model="#boat"
+            position="-87 0 -20"
+            rotation="-5 90 0"
+            scale="10 10 10">
+        </a-entity>
 
-            <a-entity gltf-model="#boat"
-                position="-87 0 -20"
-                rotation="-5 90 0"
-                scale="10 10 10">
-            </a-entity>
+        <!-- LEGENDAS -->
+        <script id="subtitle8" type="text/plain">
+        This ship will carry the spirit to its new home. 
+        Ships were symbols of passage, freedom, and honour. 
+        Not every funeral used a ship, but when they did, it was for those of standing: leaders, skilled warriors, or people whose deeds shaped the lives of others.
+        Fire releases the spirit. Among the Norse, cremation was a path to purification. 
+        The flames rise upward, carrying the essence toward the gods.
+        </script>
+        <script id="subtitle9" type="text/plain">
+        This ship will carry the spirit to its new home. 
+        Ships were symbols of passage, freedom, and honour. 
+        Not every funeral used a ship, but when they did, it was for those of standing: leaders, skilled warriors, or people whose deeds shaped the lives of others.
+        </script>
+        <script id="subtitle10" type="text/plain">
+        Among the Norse, cremation was a path to purification. 
+        The flames rise upward, carrying the essence toward the gods.
+        In sagas, the brightness of the pyre was seen as a sign of the spirit’s strength. 
+        </script>
+        <script id="subtitle11" type="text/plain">
+        Now the ship burns fiercely. The spirit is free, carried by fire, wind, and memory.
+        We who remain honour their path and guard their story so it will not fade."
 
+        Remember this, traveller: glory dims with time, but honour endures.
+        </script>
 
 
 
@@ -281,90 +352,95 @@
                 }, 80);
 
                 //VOLVA DISCURSO --------------------------
-               AFRAME.registerComponent('circle-trigger', {
-                init: function () {
-                    this.audioEls = [
-                        document.querySelector('#audioVolva1'),
-                        document.querySelector('#audioVolva2')
-                    ];
+                AFRAME.registerComponent('circle-trigger', {
+                    init: function () {
+                        this.audioEls = [
+                            document.querySelector('#audioVolva1'),
+                            document.querySelector('#audioVolva2')
+                        ];
 
-                    this.subtitles = [
-                        document.querySelector('#subtitle1').textContent.trim(),
-                        document.querySelector('#subtitle2').textContent.trim()
-                    ];
+                        this.subtitles = [
+                            document.querySelector('#subtitle1').textContent.trim(),
+                            document.querySelector('#subtitle2').textContent.trim()
+                        ];
 
-                    this.subtitlesEl = document.querySelector('#subtitles');
-                    this.currentDialog = 0;
-                    this.inCircle = false;
-
-                    this.btnNext = document.querySelector('#btnNext');
-                    this.btnRepeat = document.querySelector('#btnRepeat');
-
-                    // Eventos dos botões
-                    this.btnNext.addEventListener('click', () => {
-                        this.currentDialog++;
-                        if (this.currentDialog < this.audioEls.length) {
-                            this.playDialog(this.currentDialog);
-                        }
-                    });
-
-                    this.btnRepeat.addEventListener('click', () => {
-                        this.playDialog(this.currentDialog);
-                    });
-
-                    this.tick = AFRAME.utils.bind(this.tick, this);
-                },
-
-                tick: function () {
-                    const playerPos = document.querySelector('#player').object3D.position;
-                    const circlePos = this.el.object3D.position;
-                    const distance = playerPos.distanceTo(circlePos);
-
-                    if (distance <= 5 && !this.inCircle) {
-                        this.inCircle = true;
-                        this.playDialog(this.currentDialog);
-                    } 
-                    else if (distance > 5 && this.inCircle) {
+                        this.subtitlesEl = document.querySelector('#subtitles');
+                        this.currentDialog = 0;
                         this.inCircle = false;
+
+                        this.btnNext = document.querySelector('#btnNext');
+                        this.btnRepeat = document.querySelector('#btnRepeat');
+
+                        // Eventos dos botões
+                        this.btnNext.addEventListener('click', () => {
+                            this.currentDialog++;
+                            if (this.currentDialog < this.audioEls.length) {
+                                this.playDialog(this.currentDialog);
+                            }
+                        });
+
+                        this.btnRepeat.addEventListener('click', () => {
+                            this.playDialog(this.currentDialog);
+                        });
+
+                        this.tick = AFRAME.utils.bind(this.tick, this);
+                    },
+
+                    tick: function () {
+                        const playerPos = document.querySelector('#player').object3D.position;
+                        const circlePos = this.el.object3D.position;
+                        const distance = playerPos.distanceTo(circlePos);
+
+                        if (distance <= 5 && !this.inCircle) {
+                            this.inCircle = true;
+                            this.playDialog(this.currentDialog);
+                        } 
+                        else if (distance > 5 && this.inCircle) {
+                            this.inCircle = false;
+                            this.stopAllAudio();
+                            this.subtitlesEl.setAttribute('visible', false);
+                        }
+                    },
+
+                    playDialog: function (index) {
+                        if (!this.audioEls[index]) return;
+
                         this.stopAllAudio();
-                        this.subtitlesEl.setAttribute('visible', false);
-                    }
-                },
 
-                playDialog: function (index) {
-                    if (!this.audioEls[index]) return;
+                        const audio = this.audioEls[index];
+                        audio.currentTime = 0;
+                        audio.play();
 
-                    this.stopAllAudio();
+                        // Legenda
+                        this.subtitleText = document.querySelector('#subtitleText');
+                        this.subtitleText.setAttribute('text', `value: ${this.subtitles[index]}`);
+                        this.subtitlesEl.setAttribute('visible', true);
 
-                    const audio = this.audioEls[index];
-                    audio.currentTime = 0;
-                    audio.play();
-
-                    // Legenda
-                    this.subtitleText = document.querySelector('#subtitleText');
-                    this.subtitleText.setAttribute('text', `value: ${this.subtitles[index]}`);
-                    this.subtitlesEl.setAttribute('visible', true);
-
-                    // Esconde botões até o áudio terminar
-                    this.btnNext.setAttribute('visible', false);
-                    this.btnRepeat.setAttribute('visible', false);
-
-                    audio.onended = () => {
+                        // Esconde botões até o áudio terminar
                         this.btnNext.setAttribute('visible', true);
-                        this.btnRepeat.setAttribute('visible', true);
-                    };
-                },
+                        this.btnRepeat.setAttribute('visible', false);
 
-                stopAllAudio: function () {
-                    this.audioEls.forEach(a => {
-                        a.pause();
-                        a.currentTime = 0;
-                    });
+                        audio.onended = () => {
+                            this.btnNext.setAttribute('visible', true);
+                            this.btnRepeat.setAttribute('visible', true);
 
-                    this.btnNext.setAttribute('visible', false);
-                    this.btnRepeat.setAttribute('visible', false);
-                }
-            });
+                            //----------------------DESBLOQUEIA CABANA----------------------
+                            if(this.currentDialog === this.audioEls.length - 1){
+                                window.Game.setState("cabana-desbloqueada");
+                            }
+                        };
+                    },
+
+                    stopAllAudio: function () {
+                        this.audioEls.forEach(a => {
+                            a.pause();
+                            a.currentTime = 0;
+                        });
+
+                        this.btnNext.setAttribute('visible', false);
+                        this.btnRepeat.setAttribute('visible', false);
+                    }
+                });
 
                 // Look at camera (legendas)
                 AFRAME.registerComponent('look-at-camera', {
@@ -374,6 +450,36 @@
                     this.el.object3D.lookAt(cam.object3D.position);
                     }
                 }
+                });
+
+                
+                
+                
+                //------------------- GAME MANAGER -------------------
+                AFRAME.registerComponent('game-manager', {
+                    init: function () {
+                        this.state = "aldeia"; // cena 1
+                        window.Game = this;
+                        },
+
+                    setState: function (newState) {
+                        this.state = newState;
+                        console.log("Estado:", newState);
+
+       
+                    switch(newState){
+                        case "cabana-desbloqueada":
+                            document.querySelector('#cabanaEntity').setAttribute('visible', true);
+                            break;
+                    }}
+                });
+
+
+                // PART 1 -> 2: CABANA TRIGGER --------------------------
+                AFRAME.registerComponent('cabana-trigger', {
+                    tick: function(){
+                        if (!this.el.getAttribute('visible')) return;
+                    }
                 });
 
          

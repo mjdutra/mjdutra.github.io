@@ -15,7 +15,7 @@
                 <img id="sky" src="assets/texturas/sky.jpg">
 
                 <!-- Cenário -->               
-                <img id="textura-neve" src="assets/texturas/snow.jpg">
+                <img id="chao" src="assets/texturas/snow.jpg">
 
                 <!-- Sons -->
                 <audio id="ocean" src="assets/audio/ocean.mp3"></audio> 
@@ -23,7 +23,7 @@
                 <audio id="footstep" src="assets/audio/footstep.mp3"></audio>
 
                 <audio id="audioVolva1" src="assets/audio/audioVolva1.mp3" preload="auto"></a-audio>
-                <audio id="audioVolva2" src="assets/audio/audioVolva2.mp3" preload="auto"></audio>
+                <audio id="audioVolva2" src="assets/audio/audioVolva2.mp3" preload="auto"></a-audio>
                 
                 <!-- <audio id="audioVolva3" src="assets/audio/audioVolva3.mp3" preload="auto"></a-audio>
                 <audio id="audioVolva4" src="assets/audio/audioVolva4.mp3" preload="auto"></a-audio>
@@ -97,7 +97,7 @@
                         visible="false"
                         geometry="primitive: plane; width: 0.3; height: 0.2"
                         material="color: #222; opacity: 0.85"
-                        position="1.09 -0.85 0"
+                        position="1.09 -0.86 0"
                         class="clickable"
                         scale="1.05 1.05 1.05">
                         <a-entity
@@ -110,7 +110,7 @@
                         visible="false"
                         geometry="primitive: plane; width: 0.3; height: 0.2"
                         material="color: #222; opacity: 0.85"
-                        position="-1.09 -0.85 0"
+                        position="-1.09 -0.86 0"
                         class="clickable"
                         scale="1.05 1.05 1.05">
                             <a-entity
@@ -132,7 +132,7 @@
             <!-- TERRENO -->
             <a-entity 
             geometry="primitive: plane; width: 200; height: 400"
-                    material="src: #textura-neve; repeat: 50 100"
+                    material="src: #chao; repeat: 50 100"
                     rotation="-90 0 0"
                     position="0 0 -40">
             </a-entity>
@@ -374,9 +374,11 @@
                         // Eventos dos botões
                         this.btnNext.addEventListener('click', () => {
                             this.currentDialog++;
-                            if (this.currentDialog < this.audioEls.length) {
-                                this.playDialog(this.currentDialog);
+                            if (this.currentDialog >= this.audioEls.length) {
+                                window.Game.setState("cabana-desbloqueada");
+                                return;
                             }
+                            this.playDialog(this.currentDialog);
                         });
 
                         this.btnRepeat.addEventListener('click', () => {

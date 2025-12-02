@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ritual Final Viking</title>
+        <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+        <script src="assets/a-water-master/a-water.v0.1.1.min.js"></script>
+        <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    </head>
+    <body>
+        <a-scene renderer="antialias: true"> 
+            <a-assets>
+                
+                <!-- Céu -->
+                <img id="sky" src="assets/texturas/sky.jpg">
+
+                <!-- Cenário -->               
+                <img id="textura-neve" src="assets/texturas/snow.jpg">
+
+                <!-- Sons -->
+                <audio id="ocean" src="assets/audio/ocean.mp3"></audio> 
+                <audio id="forest" src="assets/audio/forest.mp3"></audio>
+                <audio id="footstep" src="assets/audio/footstep.mp3"></audio>
+
+                <audio id="audioVolva1" src="assets/audio/audioVolva1.mp3" preload="auto"></a-sound>
+                <audio id="audioVolva2" src="assets/audio/audioVolva2.mp3" preload="auto"></a-sound>
+
+
+
+                <!-- Modelos 3D -->
+                <a-asset-item id="casa1" src="assets/models/casa1.glb"></a-asset-item>
+                <a-asset-item id="casa2" src="assets/models/casa2.glb"></a-asset-item>
+                <a-asset-item id="casa3" src="assets/models/casa3.glb"></a-asset-item>
+                <a-asset-item id="arvore" src="assets/models/tree.glb"></a-asset-item>
+                <a-asset-item id="fogueira" src="assets/models/torch.glb"></a-asset-item>
+                <a-asset-item id="volva" src="assets/models/volva.glb">
+                <!-- <a-asset-item id="cabana" src="assets/models/volva.glb">
+                <a-asset-item id="espada" src="assets/models/espada.glb">
+                <a-asset-item id="amuleto" src="assets/models/amuleto.glb">
+                <a-asset-item id="carroça" src="assets/models/carroça.glb">
+                <a-asset-item id="cavalo" src="assets/models/cavalo.glb">
+                <a-asset-item id="npc1" src="assets/models/npc1.glb"> -->
+                <a-asset-item id="boat" src="assets/models/boat.glb">
+                <!-- <a-asset-item id="escudo" src="assets/models/escudo.glb">
+                <a-asset-item id="coins" src="assets/models/coins.glb">
+                <a-asset-item id="machado" src="assets/models/machado.glb">-->
+
+
+            </a-assets>
+            
+            <!-- SONS-->
+            <a-entity sound="src: #ocean; autoplay: true; loop: true; volume: 0.02"></a-entity>
+            <a-entity sound="src: #forest; autoplay: true; loop: true; volume: 0.04"></a-entity>
+            <a-entity sound="src: #footstep; autoplay: false; poolSize: 5; volume: 2"></a-entity>
+
+            <!-- PLAYER-->
+            <a-entity 
+                id="player"
+                camera
+                wasd-controls
+                look-controls
+                position="0 1.6 0">
+
+                <a-entity cursor="rayOrigin: mouse"></a-entity>
+
+                <!-- HUD fixo à câmara -->
+                <a-entity id="ui" position="0 0 -1.2" look-at-camera>
+
+                    <!-- Legendas -->
+                    <a-entity id="subtitles" position="0 -0.5 0" visible="false">
+                        <a-plane 
+                            width="2.5"
+                            height="0.5"
+                            color="#000"
+                            opacity="0.7"
+                            position="0 0 0"
+                            material="shader: flat; transparent: true;">
+                        </a-plane>
+
+                        <!-- Texto -->
+                        <a-entity 
+                            id="subtitleText"
+                            text="value: ; color: #fff; align: center; wrapCount: 55"
+                            position="0 0 0"
+                            scale="2 2 2">
+                        </a-entity>
+                    </a-entity>
+
+                    <!-- Botões -->
+                    <a-entity id="btnNext"
+                        visible="false"
+                        geometry="primitive: plane; width: 0.45; height: 0.25"
+                        material="color: #222; opacity: 0.85"
+                        position="0.55 -0.25 0"
+                        class="clickable"
+                        scale="1.05 1.05 1.05">
+                        <a-entity
+                            text="value: >; align: center; color: #fff; height: 0.25; width: 1"
+                            position="0 0 0.01">
+                        </a-entity>
+                    </a-entity>
+
+                    <a-entity id="btnRepeat"
+                        visible="false"
+                        geometry="primitive: plane; width: 0.45; height: 0.25"
+                        material="color: #222; opacity: 0.85"
+                        position="-0.55 -0.25 0"
+                        class="clickable"
+                        scale="1.05 1.05 1.05">
+                            <a-entity
+                                text="value: R; align: center; color: #fff; height: 0.25; width: 1"
+                                position="0 0 0.01">
+                            </a-entity>
+                    </a-entity>
+
+                </a-entity>
+            </a-entity>
+
+            <!-- ILUMINAÇÃO E CÉU -->
+            <a-entity light="type: ambient; color: #ccc"></a-entity>
+            <a-entity light="type: directional; intensity: 0.55" position="1 3 2"></a-entity>
+            <a-sky src="#sky" radius="5000"></a-sky>
+
+            <!-- TERRENO -->
+            <a-entity 
+            geometry="primitive: plane; width: 200; height: 400"
+                    material="src: #textura-neve; repeat: 50 100"
+                    rotation="-90 0 0"
+                    position="0 0 -40">
+            </a-entity>
+
+            <!-- OCEANO -->
+            <a-ocean 
+            ocean-state="height_offset: -3;
+                        wind_velocity: 0.6 0.5;
+                        light_scattering_amounts: 200 550 560;
+                        draw_distance: 400;   ;">
+            </a-ocean>
+
+
+
+        <!-- ========== ALDEIA VIKING ========== -->
+            <!-- CASAS -->
+            <a-entity gltf-model="#casa1" position="24 0 -2" scale="4 4 4"></a-entity>
+            <a-entity gltf-model="#casa2" position="16 0 21" scale="4 4 4" rotation="0 0 0"></a-entity>
+            <a-entity gltf-model="#casa3" position="-6 0 21" scale="2 2 2" rotation="0 -90 0"></a-entity>
+            <a-entity gltf-model="#casa2" position="-10 0 42" scale="4 4 4"  rotation="0 0 0"></a-entity>
+            <a-entity gltf-model="#casa2" position="-29 0 22" scale="4 4 4" rotation="0 0 0"></a-entity>
+            <a-entity gltf-model="#casa3" position="-4 0 -21" scale="2 2 2" rotation="0 0 0"></a-entity>
+            <a-entity gltf-model="#casa2" position="-25 0 -19" scale="4 4 4" rotation="0 -90 0"></a-entity>
+            <a-entity gltf-model="#casa3" position="-9 0 -46" scale="2 2 2" rotation="0 90 0"></a-entity>
+            <a-entity gltf-model="#casa2" position="-31 0 -42" scale="4 4 4" rotation="0 180 0"></a-entity>
+            <a-entity gltf-model="#casa2" position="11 0 41" scale="4 4 4" rotation="0 90 0"></a-entity>
+            <a-entity gltf-model="#casa3" position="-34 0 42" scale="2 2 2" rotation="0 90 0"></a-entity>
+            <!-- ÁRVORES -->
+            <a-entity gltf-model="#arvore" position="-11 0 -73" scale="260 260 260"></a-entity>
+            <a-entity gltf-model="#arvore" position="30 0 50" scale="250 250 250"></a-entity>
+            <a-entity gltf-model="#arvore" position="44 0 -30" scale="220 220 220"></a-entity>
+            <a-entity gltf-model="#arvore" position="34 0 -11" scale="260 260 260"></a-entity>
+            <a-entity gltf-model="#arvore" position="47 0 3" scale="200 200 200"></a-entity>
+            <a-entity gltf-model="#arvore" position="34 0 13" scale="220 220 220"></a-entity> 
+            <a-entity gltf-model="#arvore" position="60 0 -14" scale="260 260 260"></a-entity>
+            <a-entity gltf-model="#arvore" position="7 0 -79" scale="200 200 200"></a-entity>
+            <a-entity gltf-model="#arvore" position="7 0 64" scale="220 220 220"></a-entity> 
+            <a-entity gltf-model="#arvore" position="23 0 -63" scale="220 220 220"></a-entity>
+            <a-entity gltf-model="#arvore" position="36 0 -50" scale="260 260 260"></a-entity>
+            <a-entity gltf-model="#arvore" position="47 0 -42" scale="200 200 200"></a-entity>
+            <a-entity gltf-model="#arvore" position="61 0 -41" scale="260 260 260"></a-entity>
+            <a-entity gltf-model="#arvore" position="37 0 -36" scale="250 250 250"></a-entity>
+            <a-entity gltf-model="#arvore" position="34 0 13" scale="260 260 260"></a-entity>
+            <a-entity gltf-model="#arvore" position="64 0 16" scale="250 250 250"></a-entity>
+            <a-entity gltf-model="#arvore" position="60 0 34" scale="220 220 220"></a-entity>
+            <a-entity gltf-model="#arvore" position="50 0 45" scale="260 260 260"></a-entity>
+            <a-entity gltf-model="#arvore" position="3 0 50" scale="200 200 200"></a-entity>
+            <a-entity gltf-model="#arvore" position="34 0 80" scale="220 220 220"></a-entity> 
+            <a-entity gltf-model="#arvore" position="-6 0 80" scale="260 260 260"></a-entity>
+            <a-entity gltf-model="#arvore" position="-27 0 56" scale="200 200 200"></a-entity>
+            <a-entity gltf-model="#arvore" position="-47 0 54" scale="260 260 260"></a-entity>
+            <a-entity gltf-model="#arvore" position="17 0 52" scale="260 260 260"></a-entity>
+            <a-entity gltf-model="#arvore" position="30 0 32" scale="260 260 260"></a-entity>
+            <a-entity gltf-model="#arvore" position="-8 0 62" scale="200 200 200"></a-entity>
+            <a-entity gltf-model="#arvore" position="-30 0 -62" scale="220 220 220"></a-entity>
+            <a-entity gltf-model="#arvore" position="3 0 -62" scale="260 260 260"></a-entity>
+            <a-entity gltf-model="#arvore" position="-45 0 -62" scale="260 260 260"></a-entity>
+            <a-entity gltf-model="#arvore" position="-52 0 -44" scale="250 250 250"></a-entity>
+            <a-entity gltf-model="#arvore" position="-63 0 70" scale="220 220 220"></a-entity>
+            <a-entity gltf-model="#arvore" position="-77 0 -51" scale="180 180 180"></a-entity>
+            <a-entity gltf-model="#arvore" position="-93 0 -60" scale="200 200 200"></a-entity>
+            <a-entity gltf-model="#arvore" position="-81 0 -79" scale="180 180 180"></a-entity>
+            <!-- TOCHAS AO LONGO DO CAMINHO -->
+            <a-entity tochas="count: 10; spacing: 4; dir: -1 0 0" position="-36 0 -8"></a-entity>
+            <a-entity tochas="count: 10; spacing: 4; dir: -1 0 0"position="-36 0 10"></a-entity>
+
+        <!-- ========== PART 1: INTRODUÇÃO ========== -->
+        <a-entity  gltf-model="#volva" 
+            position="6 0 -9" 
+            scale="3.5 3.5 3.5" 
+            rotation="0 -30 0"
+            volva-dialog></a-entity>
+
+        <a-entity id="circle" position="6 0 -9" rotation="0 0 0"
+            geometry="primitive: cylinder; radius: 3.5; height: 0"
+            material="color: yellow; opacity: 0.5; side: double"
+            circle-trigger>
+        </a-entity>
+
+        <!-- LEGENDAS -->
+        <script id="subtitle1" type="text/plain">
+        Greetings, traveller. I am the volva, the seeress of this village. Today we witness the passage of a respected member to the world beyond. In Norse belief, death is not an end but a transition to another realm.
+        </script>
+
+        <script id="subtitle2" type="text/plain">
+        Funerals among our people are as much for the living as for the dead. They remind us of our ancestors, our kinship, and the values we uphold. The rites strengthen bonds and ensure the spirits do not linger among us.
+        </script>
+        
+
+        <!-- ========== PART 2: OFERENDAS ========== -->
+
+
+        <!-- ========== PART 3: PROCISSÃO ========== -->
+
+        <!-- ========== PART 4: BARCO ========== -->
+
+            <a-entity gltf-model="#boat"
+                position="-87 0 -20"
+                rotation="-5 90 0"
+                scale="10 10 10">
+            </a-entity>
+
+
+
+
+
+
+            <!-- LÓGICA -->
+            <script>
+                // PASSOS DO JOGADOR --------------------------
+
+
+                
+
+                // TOCHAS --------------------------
+                AFRAME.registerComponent('tochas', {
+                schema: {
+                    count: {type: 'int', default: 5},      
+                    spacing: {type: 'number', default: 4}, 
+                    dir: {type: 'vec3', default: {x:1,y:0,z:0}} 
+                },
+                
+                init: function () {
+                    for (let i = 0; i < this.data.count; i++) {
+                    const offset = {
+                        x: this.data.dir.x * this.data.spacing * i,
+                        y: this.data.dir.y * this.data.spacing * i,
+                        z: this.data.dir.z * this.data.spacing * i
+                    };
+
+                    const tocha = document.createElement('a-entity');
+                    tocha.setAttribute('gltf-model', '#fogueira');
+                    tocha.setAttribute('scale', '2 2 2');
+                    tocha.setAttribute('position', `${offset.x} ${offset.y} ${offset.z}`);
+
+                    const luz = document.createElement('a-light');
+                    luz.setAttribute('type', 'point');
+                    luz.setAttribute('color', '#bc4749');
+                    luz.setAttribute('intensity', '1.5');
+                    luz.setAttribute('distance', '8');
+                    luz.setAttribute('decay', '2');
+                    luz.setAttribute('position', '0 2 0');
+
+                    tocha.appendChild(luz);
+                    this.el.appendChild(tocha);
+                    }
+                }
+                });
+                // Animação da luz da tocha
+                const luz = document.querySelector('#tochaLuz');
+                setInterval(() => {
+                    const f = 1.2 + Math.random() * 0.4; 
+                    luz.setAttribute('intensity', f);
+                }, 80);
+
+                //VOLVA DISCURSO --------------------------
+               AFRAME.registerComponent('circle-trigger', {
+                init: function () {
+                    this.audioEls = [
+                        document.querySelector('#audioVolva1'),
+                        document.querySelector('#audioVolva2')
+                    ];
+
+                    this.subtitles = [
+                        document.querySelector('#subtitle1').textContent.trim(),
+                        document.querySelector('#subtitle2').textContent.trim()
+                    ];
+
+                    this.subtitlesEl = document.querySelector('#subtitles');
+                    this.currentDialog = 0;
+                    this.inCircle = false;
+
+                    this.btnNext = document.querySelector('#btnNext');
+                    this.btnRepeat = document.querySelector('#btnRepeat');
+
+                    // Eventos dos botões
+                    this.btnNext.addEventListener('click', () => {
+                        this.currentDialog++;
+                        if (this.currentDialog < this.audioEls.length) {
+                            this.playDialog(this.currentDialog);
+                        }
+                    });
+
+                    this.btnRepeat.addEventListener('click', () => {
+                        this.playDialog(this.currentDialog);
+                    });
+
+                    this.tick = AFRAME.utils.bind(this.tick, this);
+                },
+
+                tick: function () {
+                    const playerPos = document.querySelector('#player').object3D.position;
+                    const circlePos = this.el.object3D.position;
+                    const distance = playerPos.distanceTo(circlePos);
+
+                    if (distance <= 5 && !this.inCircle) {
+                        this.inCircle = true;
+                        this.playDialog(this.currentDialog);
+                    } 
+                    else if (distance > 5 && this.inCircle) {
+                        this.inCircle = false;
+                        this.stopAllAudio();
+                        this.subtitlesEl.setAttribute('visible', false);
+                    }
+                },
+
+                playDialog: function (index) {
+                    if (!this.audioEls[index]) return;
+
+                    this.stopAllAudio();
+
+                    const audio = this.audioEls[index];
+                    audio.currentTime = 0;
+                    audio.play();
+
+                    // Legenda
+                    this.subtitleText = document.querySelector('#subtitleText');
+                    this.subtitleText.setAttribute('text', `value: ${this.subtitles[index]}`);
+                    this.subtitlesEl.setAttribute('visible', true);
+
+                    // Esconde botões até o áudio terminar
+                    this.btnNext.setAttribute('visible', false);
+                    this.btnRepeat.setAttribute('visible', false);
+
+                    audio.onended = () => {
+                        this.btnNext.setAttribute('visible', true);
+                        this.btnRepeat.setAttribute('visible', true);
+                    };
+                },
+
+                stopAllAudio: function () {
+                    this.audioEls.forEach(a => {
+                        a.pause();
+                        a.currentTime = 0;
+                    });
+
+                    this.btnNext.setAttribute('visible', false);
+                    this.btnRepeat.setAttribute('visible', false);
+                }
+            });
+
+                // Look at camera (legendas)
+                AFRAME.registerComponent('look-at-camera', {
+                tick: function () {
+                    const cam = document.querySelector('[camera]');
+                    if (cam) {
+                    this.el.object3D.lookAt(cam.object3D.position);
+                    }
+                }
+                });
+
+         
+            </script>
+
+        </a-scene>
+    </body>
+</html>

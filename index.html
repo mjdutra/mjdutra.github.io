@@ -15,7 +15,7 @@
                 <img id="sky" src="assets/texturas/sky.jpg">
 
                 <!-- Cenário -->               
-                <img id="chao" src="assets/texturas/snow.jpg">
+                <img id="chao" src="assets/texturas/grass.jpg">
 
                 <!-- Sons -->
                 <audio id="ocean" src="assets/audio/ocean.mp3"></audio> 
@@ -135,7 +135,7 @@
             <!-- TERRENO -->
             <a-entity 
             geometry="primitive: plane; width: 200; height: 400"
-                    material="src: #chao; repeat: 50 100"
+                    material="src: #chao; repeat: 50 50"
                     rotation="-90 0 0"
                     position="0 0 -40">
             </a-entity>
@@ -255,6 +255,7 @@
 
             <a-entity id="espadaEntity" 
                 gltf-model="#espada" 
+                glow-control="false"
                 class="pickable"
                 position="-0.633 0.508 -2.196"
                 rotation="90 0 -90"
@@ -262,7 +263,8 @@
             </a-entity>
 
             <a-entity id="amuletoEntity" 
-                gltf-model="#amuleto" 
+                gltf-model="#amuleto"
+                glow-control="false" 
                 class="pickable"
                 position="0.328 0.54 -2.214"
                 rotation="-90 0 0"
@@ -560,6 +562,10 @@
                         this.btnRepeat = document.querySelector('#btnRepeat');
                         this.btnNext.addEventListener('click', () => {
                             this.stopAudio();
+                            if (this.audio) {
+                                this.audio.pause();
+                                this.audio.currentTime = 0;
+                            }
                             window.Game.setState('glow-objetos');
                         });
                         this.btnRepeat.addEventListener('click', () => {
@@ -610,7 +616,9 @@
                             this.btnNext.setAttribute('visible', true);
                             this.btnRepeat.setAttribute('visible', true);
                             this.subtitlesEl.setAttribute('visible', false); 
-                            window.Game.setState('glow-objetos');                          
+                            
+                            if (!this.audio.paused) return; 
+                                window.Game.setState('glow-objetos');                                                    
                         };
                     },
 
@@ -630,30 +638,158 @@
 
 
                 // OBJETOS GLOW --------------------------
-                    AFRAME.registerComponent('glow', {
+                    AFRAME.registerComponent('glow-control', {
+                        schema: {type: 'boolean', default: false},
+                        
                         init: function () {
-                            console.log('Glow ativado');
-                            this.el.setAttribute('material', 'emissive: yellow; emissiveIntensity: 1');
+                            this.light = null;
+                            this.originalEmissive = new Map();
+                            this.originalEmissiveIntensity = new Map();
+                            this.isPicked = false;
+                            
+                            // Ouvir evento de quando o objeto é pego
+                            this.el.addEventListener('object-picked', (evt) => {
+                                this.isPicked = true;
+                                this.setAttribute('glow-control', 'false');
+                            });
+                        },
+
+                        update: function () {
+                            if (this.data && !this.isPicked) {
+                                this.activateGlow();
+                            } else {
+                                this.deactivateGlow();
+                            }
+                        },
+                        
+                        activateGlow: function () {
+                            const obj = this.el.getObject3D('mesh');
+                            if (!obj) {
+                                this.el.addEventListener('model-loaded', () => this.activateGlow());
+                                return;
+                            }
+                            
+                            console.log('Glow ativado para:', this.el.id);
+                            
+                            // Salvar valores originais e aplicar brilho intenso
+                            obj.traverse((node) => {
+                                if (node.isMesh && node.material) {
+                                    const materials = Array.isArray(node.material) ? node.material : [node.material];
+                                    
+                                    materials.forEach((mat, index) => {
+                                        const key = `${node.uuid}-${index}`;
+                                        
+                                        // Salvar valores originais
+                                        if (!this.originalEmissive.has(key)) {
+                                            this.originalEmissive.set(key, mat.emissive ? mat.emissive.clone() : new THREE.Color(0x000000));
+                                            this.originalEmissiveIntensity.set(key, mat.emissiveIntensity || 0);
+                                        }
+                                        
+                                        // Aplicar brilho intenso (dourado brilhante)
+                                        mat.emissive = new THREE.Color(0xFFD700); // Dourado
+                                        mat.emissiveIntensity = 2.5; // Muito intenso
+                                    });
+                                }
+                            });
+
+                            // Adicionar luz pontual para efeito de halo
+                            if (!this.light) {
+                                this.light = document.createElement('a-light');
+                                this.light.setAttribute('type', 'point');
+                                this.light.setAttribute('color', '#FFD700');
+                                this.light.setAttribute('intensity', 2);
+                                this.light.setAttribute('distance', 3);
+                                this.light.setAttribute('decay', 1);
+                                this.light.setAttribute('position', '0 0.5 0');
+                                this.el.appendChild(this.light);
+                            }
+                            
+                            // Adicionar partículas para efeito mágico
+                            if (!this.particles) {
+                                this.particles = document.createElement('a-entity');
+                                this.particles.setAttribute('particle-system', {
+                                    preset: 'default',
+                                    color: '#FFD700, #FFA500',
+                                    size: 0.1,
+                                    particleCount: 50,
+                                    velocityValue: '0 1 0',
+                                    accelerationValue: '0 -0.5 0',
+                                    opacity: 0.7,
+                                    blending: 2 // Additive blending
+                                });
+                                this.el.appendChild(this.particles);
+                            }
+                        },
+                        
+                        deactivateGlow: function () {
+                            const obj = this.el.getObject3D('mesh');
+                            if (!obj) return;
+                            
+                            // Restaurar valores originais
+                            obj.traverse((node) => {
+                                if (node.isMesh && node.material) {
+                                    const materials = Array.isArray(node.material) ? node.material : [node.material];
+                                    
+                                    materials.forEach((mat, index) => {
+                                        const key = `${node.uuid}-${index}`;
+                                        
+                                        if (this.originalEmissive.has(key)) {
+                                            mat.emissive = this.originalEmissive.get(key);
+                                            mat.emissiveIntensity = this.originalEmissiveIntensity.get(key);
+                                        } else {
+                                            mat.emissive = new THREE.Color(0x000000);
+                                            mat.emissiveIntensity = 0;
+                                        }
+                                    });
+                                }
+                            });
+
+                            // Remover luz pontual
+                            if (this.light) {
+                                this.el.removeChild(this.light);
+                                this.light = null;
+                            }
+                            
+                            // Remover partículas
+                            if (this.particles) {
+                                this.el.removeChild(this.particles);
+                                this.particles = null;
+                            }
+                        },
+                        
+                        remove: function() {
+                            this.deactivateGlow();
                         }
                     });
-                
+                                                        
                 
                              
                 // PEGAR OBJETOS --------------------------
                 AFRAME.registerComponent('pickable', {
                     init: function () {
-                   
+                        this.onClick = () => {
+                            if (this.el.getAttribute('glow-control') !== 'true') {
+                                return;
+                            }
+                            this.el.setAttribute('glow-control', 'false');
+                            this.el.removeAttribute('pickable');
+                            this.el.emit('object-picked', { objectId: this.el.id });
+                        };
+                        this.el.addEventListener('click', this.onClick);
+                    },
+                    
+                    remove: function () {
+                        this.el.removeEventListener('click', this.onClick);
                     }
                 });
                 
+
                 // PLACE-TARGET --------------------------
                 AFRAME.registerComponent('place-target', {
                     init: function () {
                     
                     }
                 });
-
-
 
 
                 //--------------------- PART 3: PROCISSÃO ----------------------
@@ -679,8 +815,18 @@
                 AFRAME.registerComponent('game-manager', {
                     init: function () {
                         this.state = "aldeia"; // cena 1
+                        this.pickedObjects = [];
+                        this.el.addEventListener('object-picked', (event) => {
+                            const objectId = event.detail.objectId;
+                            if (!this.pickedObjects.includes(objectId)) {
+                                this.pickedObjects.push(objectId);
+                            }
+                            if (this.pickedObjects.includes('espadaEntity') && this.pickedObjects.includes('amuletoEntity')) {
+                            }
+                        });
+
                         window.Game = this;
-                        },
+                    },
 
                     setState: function (newState) {
                         this.state = newState;
@@ -692,8 +838,19 @@
                             break;
 
                         case "glow-objetos":
-                            document.querySelector('#espadaEntity').setAttribute('glow', '');
-                            document.querySelector('#amuletoEntity').setAttribute('glow', '');
+                            const espada = document.querySelector('#espadaEntity');
+                            const amuleto = document.querySelector('#amuletoEntity');
+                            
+                            if (espada) espada.setAttribute('glow-control', 'true');
+                            if (amuleto) amuleto.setAttribute('glow-control', 'true');
+                            break;
+
+                        case "remover-glow":
+                            const espada2 = document.querySelector('#espadaEntity');
+                            const amuleto2 = document.querySelector('#amuletoEntity');
+                            
+                            if (espada2) espada2.setAttribute('glow-control', 'false');
+                            if (amuleto2) amuleto2.setAttribute('glow-control', 'false');
                             break;
 
                         //  case "ir-para-procissao":

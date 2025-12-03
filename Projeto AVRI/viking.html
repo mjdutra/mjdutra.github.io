@@ -22,17 +22,17 @@
                 <audio id="forest" src="assets/audio/forest.mp3"></audio>
                 <audio id="footstep" src="assets/audio/footstep.mp3"></audio>
 
-                <audio id="audio1" src="assets/audio/audio1.mp3" preload="auto"></a-audio>
-                <audio id="audio2" src="assets/audio/audio2.mp3" preload="auto"></a-audio>
-                <audio id="audio3" src="assets/audio/audio3.mp3" preload="auto"></a-audio>
-                <audio id="audio4" src="assets/audio/audio4.mp3" preload="auto"></a-audio>
-                <audio id="audio5" src="assets/audio/audio5.mp3" preload="auto"></a-audio>
-                <audio id="audio6" src="assets/audio/audio6.mp3" preload="auto"></a-audio>
-                <audio id="audio7" src="assets/audio/audio7.mp3" preload="auto"></a-audio>
-                <audio id="audio8" src="assets/audio/audio8.mp3" preload="auto"></a-audio>
-                <audio id="audio9" src="assets/audio/audio9.mp3" preload="auto"></a-audio>
-                <audio id="audio10" src="assets/audio/audio10.mp3" preload="auto"></a-audio>
-                <audio id="audio11" src="assets/audio/audio11.mp3" preload="auto"></a-audio>
+                <audio id="audio1" src="assets/audio/audio1.mp3" preload="auto"></audio>
+                <audio id="audio2" src="assets/audio/audio2.mp3" preload="auto"></audio>
+                <audio id="audio3" src="assets/audio/audio3.mp3" preload="auto"></audio>
+                <audio id="audio4" src="assets/audio/audio4.mp3" preload="auto"></audio>
+                <!-- <audio id="audio5" src="assets/audio/audio5.mp3" preload="auto"></audio>
+                <audio id="audio6" src="assets/audio/audio6.mp3" preload="auto"></audio>
+                <audio id="audio7" src="assets/audio/audio7.mp3" preload="auto"></audio>
+                <audio id="audio8" src="assets/audio/audio8.mp3" preload="auto"></audio>
+                <audio id="audio9" src="assets/audio/audio9.mp3" preload="auto"></audio>
+                <audio id="audio10" src="assets/audio/audio10.mp3" preload="auto"></audio>
+                <audio id="audio11" src="assets/audio/audio11.mp3" preload="auto"></audio> -->
 
 
                 <!-- Modelos 3D -->
@@ -124,6 +124,34 @@
                 </a-entity>
             </a-entity>
 
+            <!-- HUD do NPC -->
+            <a-entity id="subtitlesNPC" position="0 -0.5 0" visible="false">
+            <a-plane width="2.5" height="0.5" color="#000" opacity="0.7"></a-plane>
+            <a-entity id="subtitleTextNPC" text="value: ; color: #fff; wrapCount: 55" position="0 0 0" scale="2 2 2"></a-entity>
+            </a-entity>
+
+            <a-entity id="btnNextNPC"
+                    visible="false"
+                    geometry="primitive: plane; width: 0.3; height: 0.2"
+                    material="color: #222; opacity: 0.85"
+                    position="1.09 -0.86 0"
+                    class="clickable"
+                    scale="1.05 1.05 1.05">
+                <a-entity text="value: >; align: center; color: #fff; height: 0.25; width: 1" position="0 0 0"></a-entity>
+            </a-entity>
+
+            <a-entity id="btnRepeatNPC"
+                    visible="false"
+                    geometry="primitive: plane; width: 0.3; height: 0.2"
+                    material="color: #222; opacity: 0.85"
+                    position="-1.09 -0.86 0"
+                    class="clickable"
+                    scale="1.05 1.05 1.05">
+                <a-entity text="value: R; align: center; color: #fff; height: 0.25; width: 1" position="0 0 0"></a-entity>
+            </a-entity>
+
+
+
 
 
             <!-- ILUMINAÇÃO E CÉU -->
@@ -210,14 +238,15 @@
         <a-entity  gltf-model="#volva" 
             position="6 0 -9" 
             scale="3.5 3.5 3.5" 
-            rotation="0 -30 0"
-            volva-dialog></a-entity>
+            rotation="0 -30 0">
+        </a-entity>
 
-        <a-entity id="circle" position="6 0 -9" rotation="0 0 0"
+        <a-entity id="circle" position="6 0 -9"
             geometry="primitive: cylinder; radius: 3.5; height: 0"
             material="color: yellow; opacity: 0.5; side: double"
             circle-trigger>
         </a-entity>
+
 
         <!-- LEGENDAS -->
         <script id="subtitle1" type="text/plain">
@@ -251,7 +280,7 @@
                     rotation="-45 45 0">
             </a-entity>
 
-            <a-entity id="espada" 
+            <a-entity id="espadaEntity" 
                 gltf-model="#espada" 
                 class="pickable"
                 position="-0.633 0.508 -2.196"
@@ -259,7 +288,7 @@
                 scale=" 0.01 0.01 0.01">
             </a-entity>
 
-            <a-entity id="amuleto" 
+            <a-entity id="amuletoEntity" 
                 gltf-model="#amuleto" 
                 class="pickable"
                 position="0.328 0.54 -2.214"
@@ -274,15 +303,23 @@
                 place-target>
             </a-entity>
 
-
             <a-entity gltf-model="#npc1"
-            position="0.772 0.074 0.996"
-            rotation="0 -35 0"
-            scale="0.6 0.6 0.6">
+                position="0.772 0.074 0.996"
+                rotation="0 -35 0"
+                scale="0.6 0.6 0.6">
             </a-entity>
 
+            <a-entity id="cabanaCircle"
+                geometry="primitive: cylinder; radius: 1; height: 0"
+                position="0.787 0.092 0.750"
+                material="color: yellow; opacity: 0.4; visible: true"
+                npc-trigger>
+            </a-entity>
 
         </a-entity>
+
+
+
 
 
         <!-- LEGENDAS -->
@@ -427,7 +464,9 @@
 
 
                 //--------------------- PART 1: INTRODUÇÃO ----------------------
-                //VOLVA DISCURSO --------------------------
+                
+                
+                // //VOLVA DISCURSO --------------------------
                 AFRAME.registerComponent('circle-trigger', {
                     init: function () {
                         this.audioEls = [
@@ -501,6 +540,7 @@
                         audio.onended = () => {
                             this.btnNext.setAttribute('visible', true);
                             this.btnRepeat.setAttribute('visible', true);
+                            this.subtitlesEl.setAttribute('visible', false);
 
                             //----------------------DESBLOQUEIA CABANA----------------------
                             if(this.currentDialog === this.audioEls.length - 1){
@@ -524,22 +564,97 @@
                 AFRAME.registerComponent('cabana-trigger', {
                     tick: function(){
                         if (!this.el.getAttribute('visible')) return;
-                    }
+                    },
                 });
 
 
+
                 //--------------------- PART 2: OFERENDAS ----------------------
-                
+                AFRAME.registerComponent('npc-trigger', {
+                    init: function () {
+                        this.player = document.querySelector('#player');
+                        this.audio = document.querySelector('#audio3');
+                        this.subtitle = document.querySelector('#subtitle3').textContent.trim();
+                        this.subtitlesEl = document.querySelector('#subtitlesNPC');
+                        this.inCircle = false;
+
+                        this.btnNext = document.querySelector('#btnNextNPC');
+                        this.btnRepeat = document.querySelector('#btnRepeatNPC');
+                        this.btnNext.addEventListener('click', () => {
+                            this.stopAudio();
+                            window.Game.setState('glow-objetos');
+                        });
+                        this.btnRepeat.addEventListener('click', () => {
+                            this.playDialog();
+                        });
+                    },
+
+                    tick: function () {
+
+                        const playerPos = this.player.object3D.position;
+                        const circlePos = new THREE.Vector3();
+                        this.el.object3D.getWorldPosition(circlePos);
+                        const distance = playerPos.distanceTo(circlePos);
+
+                        if (distance <= 2 && !this.inCircle) {
+                            this.inCircle = true;
+                            this.playDialog();
+                        } 
+                        else if (distance > 2 && this.inCircle) {
+                            this.inCircle = false;
+                            this.stopAudio();
+                            this.subtitlesEl.setAttribute('visible', false);
+                        }
+                    },
+
+                    playDialog: function () {
+                        if (!this.audio) return;
+
+                        this.stopAudio();
+                        this.audio.currentTime = 0;
+                        this.audio.play();
+
+                        // Legenda
+                        this.subtitleText = document.querySelector('#subtitleTextNPC');
+                        this.subtitleText.setAttribute('text', `value: ${this.subtitle}`);
+                        this.subtitlesEl.setAttribute('visible', true);
+
+                        // Esconde botões até o áudio terminar
+                        this.btnNextNPC.setAttribute('visible', true);
+                        this.btnRepeatNPC.setAttribute('visible', false);
+
+                        this.audio.onended = () => {
+                            this.btnNextNPC.setAttribute('visible', true);
+                            this.btnRepeatNPC.setAttribute('visible', true);
+                            this.subtitlesEl.setAttribute('visible', false); 
+                            window.Game.setState('glow-objetos');                          
+                        };
+                    },
+
+                    stopAudio: function () {
+                        if (this.audio) {
+                            this.audio.pause();
+                            this.audio.currentTime = 0;
+                        }
+
+                        this.subtitlesEl.setAttribute('visible', false);
+                        this.btnNext.setAttribute('visible', false);
+                        this.btnRepeat.setAttribute('visible', false);
+                    }
+                }); 
+                    
 
 
 
-                
                 // OBJETOS GLOW --------------------------
+                    AFRAME.registerComponent('glow', {
+                        init: function () {
+                            this.el.setAttribute('material', 'emissive: yellow; emissiveIntensity: 1');
+                        }
+                    });
                 
                 
-                
-                
-                
+                             
                 // PEGAR OBJETOS --------------------------
                 AFRAME.registerComponent('pickable', {
                     init: function () {
@@ -567,6 +682,12 @@
 
 
 
+                
+
+        
+
+
+
 
 
 
@@ -579,12 +700,16 @@
 
                     setState: function (newState) {
                         this.state = newState;
-                        console.log("Estado:", newState);
 
        
                     switch(newState){
                         case "cabana-desbloqueada":
                             document.querySelector('#cabanaEntity').setAttribute('visible', true);
+                            break;
+
+                        case "glow-objetos":
+                            document.querySelector('#espadaEntity').setAttribute('glow', '');
+                            document.querySelector('#amuletoEntity').setAttribute('glow', '');
                             break;
 
                         //  case "ir-para-procissao":

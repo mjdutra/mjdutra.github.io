@@ -22,13 +22,17 @@
                 <audio id="forest" src="assets/audio/forest.mp3"></audio>
                 <audio id="footstep" src="assets/audio/footstep.mp3"></audio>
 
-                <audio id="audioVolva1" src="assets/audio/audioVolva1.mp3" preload="auto"></a-audio>
-                <audio id="audioVolva2" src="assets/audio/audioVolva2.mp3" preload="auto"></a-audio>
-                
-                <!-- <audio id="audioVolva3" src="assets/audio/audioVolva3.mp3" preload="auto"></a-audio>
-                <audio id="audioVolva4" src="assets/audio/audioVolva4.mp3" preload="auto"></a-audio>
-                <audio id="audioVolva5" src="assets/audio/audioVolva5.mp3" preload="auto"></a-audio> -->
-
+                <audio id="audio1" src="assets/audio/audio1.mp3" preload="auto"></a-audio>
+                <audio id="audio2" src="assets/audio/audio2.mp3" preload="auto"></a-audio>
+                <audio id="audio3" src="assets/audio/audio3.mp3" preload="auto"></a-audio>
+                <audio id="audio4" src="assets/audio/audio4.mp3" preload="auto"></a-audio>
+                <audio id="audio5" src="assets/audio/audio5.mp3" preload="auto"></a-audio>
+                <audio id="audio6" src="assets/audio/audio6.mp3" preload="auto"></a-audio>
+                <audio id="audio7" src="assets/audio/audio7.mp3" preload="auto"></a-audio>
+                <audio id="audio8" src="assets/audio/audio8.mp3" preload="auto"></a-audio>
+                <audio id="audio9" src="assets/audio/audio9.mp3" preload="auto"></a-audio>
+                <audio id="audio10" src="assets/audio/audio10.mp3" preload="auto"></a-audio>
+                <audio id="audio11" src="assets/audio/audio11.mp3" preload="auto"></a-audio>
 
 
                 <!-- Modelos 3D -->
@@ -41,13 +45,11 @@
                 <a-asset-item id="cabana" src="assets/models/cabana.glb"></a-asset-item>
                 <a-asset-item id="espada" src="assets/models/espada.glb"></a-asset-item>
                 <a-asset-item id="amuleto" src="assets/models/amuleto.glb"></a-asset-item>
-                <!-- <a-asset-item id="carroça" src="assets/models/carroça.glb"></a-asset-item>
-                <a-asset-item id="cavalo" src="assets/models/cavalo.glb"></a-asset-item>
-                <a-asset-item id="npc1" src="assets/models/npc1.glb"></a-asset-item> -->
+                <a-asset-item id="mesa" src="assets/models/mesa.glb"></a-asset-item>
+                <a-asset-item id="npc1" src="assets/models/npc1.glb"></a-asset-item>
+                <a-asset-item id="npc2" src="assets/models/npc2.glb"></a-asset-item>
                 <a-asset-item id="boat" src="assets/models/boat.glb"></a-asset-item>
-                <!-- <a-asset-item id="escudo" src="assets/models/escudo.glb"></a-asset-item>
-                <a-asset-item id="coins" src="assets/models/coins.glb"></a-asset-item>
-                <a-asset-item id="machado" src="assets/models/machado.glb"></a-asset-item> -->
+                
 
 
             </a-assets>
@@ -65,7 +67,7 @@
                 camera
                 wasd-controls
                 look-controls
-                position="0 1.6 0">
+                position="0 3 0">
 
                 <a-entity cursor="rayOrigin: mouse"></a-entity>
 
@@ -102,7 +104,7 @@
                         scale="1.05 1.05 1.05">
                         <a-entity
                             text="value: >; align: center; color: #fff; height: 0.25; width: 1"
-                            position="0 0 0.01">
+                            position="0 0 0">
                         </a-entity>
                     </a-entity>
 
@@ -115,7 +117,7 @@
                         scale="1.05 1.05 1.05">
                             <a-entity
                                 text="value: R; align: center; color: #fff; height: 0.25; width: 1"
-                                position="0 0 0.01">
+                                position="0 0 0">
                             </a-entity>
                     </a-entity>
 
@@ -199,6 +201,11 @@
             <a-entity tochas="count: 10; spacing: 4; dir: -1 0 0" position="-36 0 -8"></a-entity>
             <a-entity tochas="count: 10; spacing: 4; dir: -1 0 0"position="-36 0 10"></a-entity>
 
+
+
+
+
+
         <!-- ========== PART 1: INTRODUÇÃO ========== -->
         <a-entity  gltf-model="#volva" 
             position="6 0 -9" 
@@ -225,6 +232,11 @@
         </script>
         
 
+
+        
+
+
+
         <!-- ========== PART 2: OFERENDAS ========== -->
         <a-entity id="cabanaEntity"
             gltf-model="#cabana"
@@ -233,7 +245,45 @@
             scale="4 4 4"
             visible="false"
             cabana-trigger>
+
+            <a-entity light="type: directional; intensity: 0.7"
+                    position="1 2 1"
+                    rotation="-45 45 0">
+            </a-entity>
+
+            <a-entity id="espada" 
+                gltf-model="#espada" 
+                class="pickable"
+                position="-0.633 0.508 -2.196"
+                rotation="90 0 -90"
+                scale=" 0.01 0.01 0.01">
+            </a-entity>
+
+            <a-entity id="amuleto" 
+                gltf-model="#amuleto" 
+                class="pickable"
+                position="0.328 0.54 -2.214"
+                rotation="-90 0 0"
+                scale="0.004 0.004 0.004">
+            </a-entity>
+
+            <a-entity id="mesaFalecido"
+                gltf-model="#mesa"
+                position="-0.112 0 -0.320"
+                rotation="0 -90 0"
+                place-target>
+            </a-entity>
+
+
+            <a-entity gltf-model="#npc1"
+            position="0.772 0.074 0.996"
+            rotation="0 -35 0"
+            scale="0.6 0.6 0.6">
+            </a-entity>
+
+
         </a-entity>
+
 
         <!-- LEGENDAS -->
         <script id="subtitle3" type="text/plain">
@@ -246,6 +296,7 @@
         They remind the gods of the person’s skills, status, and the tasks they carried out in life.
         A gift for the road, as our ancestors believed.
         </script>
+
 
 
         <!-- ========== PART 3: PROCISSÃO ========== -->
@@ -267,6 +318,8 @@
         It is said that the louder the chants, the less likely the spirit is to linger behind.
         </script>
 
+
+        
         <!-- ========== PART 4: BARCO ========== -->
         <a-entity gltf-model="#boat"
             position="-87 0 -20"
@@ -303,12 +356,24 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <!-- LÓGICA -->
             <script>
                 // PASSOS DO JOGADOR --------------------------
-
-
-                
 
                 // TOCHAS --------------------------
                 AFRAME.registerComponent('tochas', {
@@ -344,19 +409,30 @@
                     }
                 }
                 });
-                // Animação da luz da tocha
-                const luz = document.querySelector('#tochaLuz');
-                setInterval(() => {
-                    const f = 1.2 + Math.random() * 0.4; 
-                    luz.setAttribute('intensity', f);
-                }, 80);
+                    setInterval(() => {
+                        const f = 1.2 + Math.random() * 0.4; 
+                    }, 80);
+                // Look at camera (legendas)
+                AFRAME.registerComponent('look-at-camera', {
+                tick: function () {
+                    const cam = document.querySelector('[camera]');
+                    if (cam) {
+                    this.el.object3D.lookAt(cam.object3D.position);
+                    }
+                }
+                });
 
+
+
+
+
+                //--------------------- PART 1: INTRODUÇÃO ----------------------
                 //VOLVA DISCURSO --------------------------
                 AFRAME.registerComponent('circle-trigger', {
                     init: function () {
                         this.audioEls = [
-                            document.querySelector('#audioVolva1'),
-                            document.querySelector('#audioVolva2')
+                            document.querySelector('#audio1'),
+                            document.querySelector('#audio2')
                         ];
 
                         this.subtitles = [
@@ -444,19 +520,56 @@
                     }
                 });
 
-                // Look at camera (legendas)
-                AFRAME.registerComponent('look-at-camera', {
-                tick: function () {
-                    const cam = document.querySelector('[camera]');
-                    if (cam) {
-                    this.el.object3D.lookAt(cam.object3D.position);
+                // PART 1 -> 2: CABANA TRIGGER --------------------------
+                AFRAME.registerComponent('cabana-trigger', {
+                    tick: function(){
+                        if (!this.el.getAttribute('visible')) return;
                     }
-                }
                 });
 
+
+                //--------------------- PART 2: OFERENDAS ----------------------
+                
+
+
+
+                
+                // OBJETOS GLOW --------------------------
                 
                 
                 
+                
+                
+                // PEGAR OBJETOS --------------------------
+                AFRAME.registerComponent('pickable', {
+                    init: function () {
+                   
+                    }
+                });
+                
+                // PLACE-TARGET --------------------------
+                AFRAME.registerComponent('place-target', {
+                    init: function () {
+                    
+                    }
+                });
+
+
+
+
+                //--------------------- PART 3: PROCISSÃO ----------------------
+
+
+
+
+
+                //--------------------- PART 4: BARCO ----------------------
+
+
+
+
+
+
                 //------------------- GAME MANAGER -------------------
                 AFRAME.registerComponent('game-manager', {
                     init: function () {
@@ -473,16 +586,26 @@
                         case "cabana-desbloqueada":
                             document.querySelector('#cabanaEntity').setAttribute('visible', true);
                             break;
+
+                        //  case "ir-para-procissao":
+                        //     this.fadeTeleport('#player', {x:0, y:1.6, z:20});
+                        //     break;
+
+                        case "procissao":
+                            // document.querySelector('#pathToBarco').setAttribute('visible', true);
+                            break;
+
+                        // case "barco":
+                        //     break;
+
+                        // case "fim":
+                        //     document.querySelector('#fimText').setAttribute('visible', true);
+                        //     break;
                     }}
                 });
 
 
-                // PART 1 -> 2: CABANA TRIGGER --------------------------
-                AFRAME.registerComponent('cabana-trigger', {
-                    tick: function(){
-                        if (!this.el.getAttribute('visible')) return;
-                    }
-                });
+
 
          
             </script>

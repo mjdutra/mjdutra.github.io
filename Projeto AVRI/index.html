@@ -531,7 +531,6 @@
                         this.audioEls.forEach(a => {
                             a.pause();
                             a.currentTime = 0;
-                            console.log(a);
                         });
 
                         this.btnNext.setAttribute('visible', false);
@@ -633,6 +632,7 @@
                 // OBJETOS GLOW --------------------------
                     AFRAME.registerComponent('glow', {
                         init: function () {
+                            console.log('Glow ativado');
                             this.el.setAttribute('material', 'emissive: yellow; emissiveIntensity: 1');
                         }
                     });

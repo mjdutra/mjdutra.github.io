@@ -124,33 +124,6 @@
                 </a-entity>
             </a-entity>
 
-            <!-- HUD do NPC -->
-            <a-entity id="subtitlesNPC" position="0 -0.5 0" visible="false">
-            <a-plane width="2.5" height="0.5" color="#000" opacity="0.7"></a-plane>
-            <a-entity id="subtitleTextNPC" text="value: ; color: #fff; wrapCount: 55" position="0 0 0" scale="2 2 2"></a-entity>
-            </a-entity>
-
-            <a-entity id="btnNextNPC"
-                    visible="false"
-                    geometry="primitive: plane; width: 0.3; height: 0.2"
-                    material="color: #222; opacity: 0.85"
-                    position="1.09 -0.86 0"
-                    class="clickable"
-                    scale="1.05 1.05 1.05">
-                <a-entity text="value: >; align: center; color: #fff; height: 0.25; width: 1" position="0 0 0"></a-entity>
-            </a-entity>
-
-            <a-entity id="btnRepeatNPC"
-                    visible="false"
-                    geometry="primitive: plane; width: 0.3; height: 0.2"
-                    material="color: #222; opacity: 0.85"
-                    position="-1.09 -0.86 0"
-                    class="clickable"
-                    scale="1.05 1.05 1.05">
-                <a-entity text="value: R; align: center; color: #fff; height: 0.25; width: 1" position="0 0 0"></a-entity>
-            </a-entity>
-
-
 
 
 
@@ -310,7 +283,7 @@
             </a-entity>
 
             <a-entity id="cabanaCircle"
-                geometry="primitive: cylinder; radius: 1; height: 0"
+                geometry="primitive: cylinder; radius: 0.8; height: 0"
                 position="0.787 0.092 0.750"
                 material="color: yellow; opacity: 0.4; visible: true"
                 npc-trigger>
@@ -466,7 +439,7 @@
                 //--------------------- PART 1: INTRODUÇÃO ----------------------
                 
                 
-                // //VOLVA DISCURSO --------------------------
+                //VOLVA DISCURSO --------------------------
                 AFRAME.registerComponent('circle-trigger', {
                     init: function () {
                         this.audioEls = [
@@ -491,6 +464,7 @@
                             this.currentDialog++;
                             if (this.currentDialog >= this.audioEls.length) {
                                 window.Game.setState("cabana-desbloqueada");
+
                                 return;
                             }
                             this.playDialog(this.currentDialog);
@@ -522,6 +496,10 @@
                     playDialog: function (index) {
                         if (!this.audioEls[index]) return;
 
+                        this.subtitlesEl.setAttribute('visible', true);
+                        this.btnNext.setAttribute('visible', true);
+                        this.btnRepeat.setAttribute('visible', true);
+
                         this.stopAllAudio();
 
                         const audio = this.audioEls[index];
@@ -538,8 +516,8 @@
                         this.btnRepeat.setAttribute('visible', false);
 
                         audio.onended = () => {
-                            this.btnNext.setAttribute('visible', true);
-                            this.btnRepeat.setAttribute('visible', true);
+                            this.btnNext.setAttribute('visible', false);
+                            this.btnRepeat.setAttribute('visible', false);
                             this.subtitlesEl.setAttribute('visible', false);
 
                             //----------------------DESBLOQUEIA CABANA----------------------
@@ -553,6 +531,7 @@
                         this.audioEls.forEach(a => {
                             a.pause();
                             a.currentTime = 0;
+                            console.log(a);
                         });
 
                         this.btnNext.setAttribute('visible', false);
@@ -572,14 +551,14 @@
                 //--------------------- PART 2: OFERENDAS ----------------------
                 AFRAME.registerComponent('npc-trigger', {
                     init: function () {
-                        this.player = document.querySelector('#player');
+
                         this.audio = document.querySelector('#audio3');
                         this.subtitle = document.querySelector('#subtitle3').textContent.trim();
-                        this.subtitlesEl = document.querySelector('#subtitlesNPC');
+                        this.subtitlesEl = document.querySelector('#subtitles');
                         this.inCircle = false;
 
-                        this.btnNext = document.querySelector('#btnNextNPC');
-                        this.btnRepeat = document.querySelector('#btnRepeatNPC');
+                        this.btnNext = document.querySelector('#btnNext');
+                        this.btnRepeat = document.querySelector('#btnRepeat');
                         this.btnNext.addEventListener('click', () => {
                             this.stopAudio();
                             window.Game.setState('glow-objetos');
@@ -590,17 +569,16 @@
                     },
 
                     tick: function () {
-
-                        const playerPos = this.player.object3D.position;
+                        const playerPos = document.querySelector('#player').object3D.position;
                         const circlePos = new THREE.Vector3();
                         this.el.object3D.getWorldPosition(circlePos);
                         const distance = playerPos.distanceTo(circlePos);
 
-                        if (distance <= 2 && !this.inCircle) {
+                        if (distance <= 4.6 && !this.inCircle) {
                             this.inCircle = true;
                             this.playDialog();
                         } 
-                        else if (distance > 2 && this.inCircle) {
+                        else if (distance > 4.6 && this.inCircle) {
                             this.inCircle = false;
                             this.stopAudio();
                             this.subtitlesEl.setAttribute('visible', false);
@@ -608,24 +586,30 @@
                     },
 
                     playDialog: function () {
-                        if (!this.audio) return;
+                        if (!this.audio){
+                            return;
+                        }
+
+                        this.subtitlesEl.setAttribute('visible', true);
+                        this.btnNext.setAttribute('visible', true);
+                        this.btnRepeat.setAttribute('visible', true);
 
                         this.stopAudio();
                         this.audio.currentTime = 0;
                         this.audio.play();
 
                         // Legenda
-                        this.subtitleText = document.querySelector('#subtitleTextNPC');
+                        this.subtitleText = document.querySelector('#subtitleText');
                         this.subtitleText.setAttribute('text', `value: ${this.subtitle}`);
                         this.subtitlesEl.setAttribute('visible', true);
 
                         // Esconde botões até o áudio terminar
-                        this.btnNextNPC.setAttribute('visible', true);
-                        this.btnRepeatNPC.setAttribute('visible', false);
+                        this.btnNext.setAttribute('visible', true);
+                        this.btnRepeat.setAttribute('visible', false);
 
                         this.audio.onended = () => {
-                            this.btnNextNPC.setAttribute('visible', true);
-                            this.btnRepeatNPC.setAttribute('visible', true);
+                            this.btnNext.setAttribute('visible', true);
+                            this.btnRepeat.setAttribute('visible', true);
                             this.subtitlesEl.setAttribute('visible', false); 
                             window.Game.setState('glow-objetos');                          
                         };
@@ -637,9 +621,9 @@
                             this.audio.currentTime = 0;
                         }
 
-                        this.subtitlesEl.setAttribute('visible', false);
-                        this.btnNext.setAttribute('visible', false);
-                        this.btnRepeat.setAttribute('visible', false);
+                        this.subtitlesEl.setAttribute('visible', true);
+                        this.btnNext.setAttribute('visible', true);
+                        this.btnRepeat.setAttribute('visible', true);
                     }
                 }); 
                     
